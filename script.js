@@ -164,13 +164,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setupRevealAnimations();
 
-    // ---- Form handling (Web3Forms API) ----
-    function handleFormSubmit(formId, successMessage, errorMessage) {
+    // ---- Form handling (Web3Forms API & WhatsApp) ----
+    function handleFormSubmit(formId, successMessage, errorMessage, onBeforeSubmit) {
         const form = document.getElementById(formId);
         if (!form) return;
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
+
+            // Execute synchronous pre-submit action (e.g. open WhatsApp in direct user event)
+            if (typeof onBeforeSubmit === 'function') {
+                try {
+                    onBeforeSubmit(form);
+                } catch (err) {
+                    console.error('Form pre-submit error:', err);
+                }
+            }
 
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
@@ -220,7 +229,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     handleFormSubmit('volunteer-form', 'Application Sent!', 'Failed to send');
-    handleFormSubmit('contact-form', 'Message Sent!', 'Failed to send');
+    handleFormSubmit('contact-form', 'Message Sent!', 'Failed to send', (form) => {
+        const name = form.querySelector('#contact-name')?.value?.trim() || '';
+        const email = form.querySelector('#contact-email')?.value?.trim() || '';
+        const subject = form.querySelector('#contact-subject')?.value?.trim() || '';
+        const message = form.querySelector('#contact-message')?.value?.trim() || '';
+
+        let waText = `*New Contact Message — ShivaUmeed Foundation*\n\n` +
+            `*Name:* ${name}\n` +
+            `*Email:* ${email}\n`;
+        if (subject) {
+            waText += `*Subject:* ${subject}\n`;
+        }
+        waText += `*Message:* ${message}`;
+
+        const waUrl = `https://api.whatsapp.com/send?phone=919203269980&text=${encodeURIComponent(waText)}`;
+        window.open(waUrl, '_blank');
+    });
 
     // ---- Smooth scroll for anchor links ----
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
