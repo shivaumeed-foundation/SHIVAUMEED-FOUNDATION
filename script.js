@@ -164,43 +164,63 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setupRevealAnimations();
 
-    // ---- Form handling ----
-    function handleFormSubmit(formId, successMessage) {
+    // ---- Form handling (Web3Forms API) ----
+    function handleFormSubmit(formId, successMessage, errorMessage) {
         const form = document.getElementById(formId);
         if (!form) return;
 
-        form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
 
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
 
-            // Simple loading state
+            // Loading state
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
             submitBtn.style.opacity = '0.7';
 
-            // Simulate submission (replace with actual API call)
-            setTimeout(() => {
-                submitBtn.textContent = '✓ ' + successMessage;
-                submitBtn.style.background = '#3d7a3e';
-                submitBtn.style.borderColor = '#3d7a3e';
+            try {
+                const formData = new FormData(form);
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
 
-                // Reset form
-                setTimeout(() => {
+                const result = await response.json();
+
+                if (result.success) {
+                    // Success
+                    submitBtn.textContent = '✓ ' + successMessage;
+                    submitBtn.style.background = '#3d7a3e';
+                    submitBtn.style.borderColor = '#3d7a3e';
                     form.reset();
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                    submitBtn.style.opacity = '1';
-                    submitBtn.style.background = '';
-                    submitBtn.style.borderColor = '';
-                }, 3000);
-            }, 1500);
+                } else {
+                    // API returned an error
+                    submitBtn.textContent = '✗ ' + (errorMessage || 'Something went wrong');
+                    submitBtn.style.background = '#c0392b';
+                    submitBtn.style.borderColor = '#c0392b';
+                }
+            } catch (err) {
+                // Network error
+                submitBtn.textContent = '✗ Network error, please try again';
+                submitBtn.style.background = '#c0392b';
+                submitBtn.style.borderColor = '#c0392b';
+            }
+
+            // Reset button after 4 seconds
+            setTimeout(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+                submitBtn.style.background = '';
+                submitBtn.style.borderColor = '';
+            }, 4000);
         });
     }
 
-    handleFormSubmit('volunteer-form', 'Application Sent!');
-    handleFormSubmit('contact-form', 'Message Sent!');
+    handleFormSubmit('volunteer-form', 'Application Sent!', 'Failed to send');
+    handleFormSubmit('contact-form', 'Message Sent!', 'Failed to send');
 
     // ---- Smooth scroll for anchor links ----
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
