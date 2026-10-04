@@ -228,14 +228,42 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    handleFormSubmit('volunteer-form', 'Application Sent!', 'Failed to send');
+    handleFormSubmit('volunteer-form', 'Application Sent!', 'Failed to send', (form) => {
+        const name = form.querySelector('#vol-name')?.value?.trim() || '';
+        const email = form.querySelector('#vol-email')?.value?.trim() || '';
+        const phone = form.querySelector('#vol-phone')?.value?.trim() || '';
+        const city = form.querySelector('#vol-city')?.value?.trim() || '';
+        const interestSelect = form.querySelector('#vol-interest');
+        const interest = (interestSelect && interestSelect.selectedIndex > 0)
+            ? interestSelect.options[interestSelect.selectedIndex].text
+            : '';
+        const message = form.querySelector('#vol-message')?.value?.trim() || '';
+
+        let waText = `*New Volunteer Application — SHIVAUMEED-FOUNDATION*\n\n` +
+            `*Name:* ${name}\n` +
+            `*Email:* ${email}\n` +
+            `*Phone:* ${phone}\n`;
+        if (city) {
+            waText += `*City/Village:* ${city}\n`;
+        }
+        if (interest) {
+            waText += `*Area of Interest:* ${interest}\n`;
+        }
+        if (message) {
+            waText += `*About:* ${message}\n`;
+        }
+
+        const waUrl = `https://api.whatsapp.com/send?phone=919203269980&text=${encodeURIComponent(waText)}`;
+        window.open(waUrl, '_blank');
+    });
+
     handleFormSubmit('contact-form', 'Message Sent!', 'Failed to send', (form) => {
         const name = form.querySelector('#contact-name')?.value?.trim() || '';
         const email = form.querySelector('#contact-email')?.value?.trim() || '';
         const subject = form.querySelector('#contact-subject')?.value?.trim() || '';
         const message = form.querySelector('#contact-message')?.value?.trim() || '';
 
-        let waText = `*New Contact Message — ShivaUmeed Foundation*\n\n` +
+        let waText = `*New Contact Message — SHIVAUMEED-FOUNDATION*\n\n` +
             `*Name:* ${name}\n` +
             `*Email:* ${email}\n`;
         if (subject) {
