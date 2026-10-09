@@ -49,8 +49,15 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://shivaumeedfoundation.org/">
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" href="logo.jpeg">
+    <!-- Favicon & Touch Icons (Google Search & Multi-device compliant) -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="manifest" href="/site.webmanifest">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,12 +70,17 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "NGO",
+        "@type": ["Organization", "NGO"],
         "name": "SHIVAUMEED-FOUNDATION",
         "alternateName": "ShivaUmeed Foundation",
         "description": "A Section 8 non-profit company working towards education, skill development, healthcare, women empowerment, and rural development in India.",
-        "url": "https://shivaumeedfoundation.org",
-        "logo": "https://shivaumeedfoundation.org/logo.jpeg",
+        "url": "https://shivaumeedfoundation.org/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://shivaumeedfoundation.org/logo.jpeg",
+            "width": 1080,
+            "height": 1080
+        },
         "image": "https://shivaumeedfoundation.org/cover_page.jpeg",
         "address": {
             "@type": "PostalAddress",
