@@ -203,6 +203,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     submitBtn.textContent = '✓ ' + successMessage;
                     submitBtn.style.background = '#3d7a3e';
                     submitBtn.style.borderColor = '#3d7a3e';
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'generate_lead', {
+                            event_category: 'form',
+                            event_label: formId
+                        });
+                    }
                     form.reset();
                 } else {
                     // API returned an error
