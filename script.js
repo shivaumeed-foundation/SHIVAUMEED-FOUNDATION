@@ -425,4 +425,154 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ============================================
+    // DARK MODE CONTROLLER
+    // ============================================
+    const themeToggle = document.getElementById('theme-toggle');
+
+    function applyTheme(theme, savePreference = true) {
+        document.documentElement.setAttribute('data-theme', theme);
+        if (themeToggle) {
+            const isDark = theme === 'dark';
+            themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+            themeToggle.setAttribute('title', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+        }
+        if (savePreference) {
+            try {
+                localStorage.setItem('shiva_theme', theme);
+            } catch (e) {}
+        }
+    }
+
+    // Initialize theme button state
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    applyTheme(currentTheme, false);
+
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const activeTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = activeTheme === 'dark' ? 'light' : 'dark';
+            applyTheme(newTheme, true);
+        });
+    }
+
+    // React to system preference changes if user hasn't set explicit preference
+    if (window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            try {
+                if (!localStorage.getItem('shiva_theme')) {
+                    applyTheme(e.matches ? 'dark' : 'light', false);
+                }
+            } catch (err) {}
+        });
+    }
+
+    // ============================================
+    // BACKGROUND MUSIC & SPEAKER MUTE CONTROLLER
+    // ============================================
+    const bgAudio = document.getElementById('bg-audio');
+    const audioToggle = document.getElementById('audio-toggle');
+    const audioToast = document.getElementById('audio-toast');
+    const audioToastText = document.getElementById('audio-toast-text');
+    let toastTimeout = null;
+
+    function showAudioToast(message, duration = 3000) {
+        if (!audioToast || !audioToastText) return;
+        audioToastText.textContent = message;
+        audioToast.classList.add('show');
+        if (toastTimeout) clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+            audioToast.classList.remove('show');
+        }, duration);
+    }
+
+    function updateAudioUI(isPlaying) {
+        if (!audioToggle) return;
+        if (isPlaying) {
+            audioToggle.classList.remove('muted');
+            audioToggle.classList.add('playing');
+            audioToggle.setAttribute('aria-label', 'Mute background music');
+            audioToggle.setAttribute('title', 'Mute background music');
+        } else {
+            audioToggle.classList.remove('playing');
+            audioToggle.classList.add('muted');
+            audioToggle.setAttribute('aria-label', 'Play background music');
+            audioToggle.setAttribute('title', 'Play background music');
+        }
+    }
+
+    if (bgAudio && audioToggle) {
+        // Target ambient background volume
+        bgAudio.volume = 0.35;
+
+        // Check if user previously muted
+        let isMutedPref = false;
+        try {
+            isMutedPref = localStorage.getItem('shiva_audio_muted') === 'true';
+        } catch (e) {}
+
+        if (isMutedPref) {
+            updateAudioUI(false);
+        } else {
+            // Attempt autoplay
+            const playPromise = bgAudio.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    updateAudioUI(true);
+                    showAudioToast('Ambient background music playing', 3500);
+                }).catch(() => {
+                    // Browser blocked unmuted autoplay without user gesture
+                    updateAudioUI(false);
+
+                    // Start on the first user interaction (click, touch, key, or scroll)
+                    const startOnInteraction = () => {
+                        let currentMutedPref = false;
+                        try {
+                            currentMutedPref = localStorage.getItem('shiva_audio_muted') === 'true';
+                        } catch (e) {}
+
+                        if (!currentMutedPref && bgAudio.paused) {
+                            bgAudio.volume = 0.35;
+                            bgAudio.play().then(() => {
+                                updateAudioUI(true);
+                                showAudioToast('Ambient background music playing', 3500);
+                            }).catch(() => {});
+                        }
+
+                        ['click', 'touchstart', 'scroll', 'keydown'].forEach(evt => {
+                            window.removeEventListener(evt, startOnInteraction);
+                        });
+                    };
+
+                    ['click', 'touchstart', 'scroll', 'keydown'].forEach(evt => {
+                        window.addEventListener(evt, startOnInteraction, { once: true, passive: true });
+                    });
+                });
+            }
+        }
+
+        // Toggle button click listener
+        audioToggle.addEventListener('click', () => {
+            if (!bgAudio.paused) {
+                bgAudio.pause();
+                updateAudioUI(false);
+                try {
+                    localStorage.setItem('shiva_audio_muted', 'true');
+                } catch (e) {}
+                showAudioToast('Background music muted');
+            } else {
+                bgAudio.volume = 0.35;
+                bgAudio.play().then(() => {
+                    updateAudioUI(true);
+                    try {
+                        localStorage.setItem('shiva_audio_muted', 'false');
+                    } catch (e) {}
+                    showAudioToast('Background music playing');
+                }).catch((err) => {
+                    console.warn('Playback error:', err);
+                });
+            }
+        });
+    }
+
 });
