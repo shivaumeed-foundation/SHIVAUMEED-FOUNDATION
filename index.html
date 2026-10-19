@@ -160,8 +160,8 @@
     <!-- ====== HERO SECTION ====== -->
     <header id="home" class="hero">
         <div class="hero-bg">
-            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1920&q=80"
-                alt="Children smiling in rural India" loading="eager">
+            <img src="images/gallery/bg-children.webp"
+                alt="Children supported by ShivaUmeed Foundation" loading="eager">
             <div class="hero-overlay"></div>
         </div>
         <div class="hero-content">
@@ -517,42 +517,384 @@
     <section id="gallery" class="gallery section" aria-labelledby="gallery-heading">
         <div class="container">
             <div class="section-header">
-                <span class="section-label">Our Work in Action</span>
-                <h2 id="gallery-heading" class="section-title">Moments of <span class="highlight">Hope &amp;
-                        Change</span></h2>
-                <p class="section-desc">Glimpses from our initiatives across villages and communities.</p>
+                <span class="section-label">Ground Realities &amp; Impact</span>
+                <h2 id="gallery-heading" class="section-title">Our Social Work <span class="highlight">In Action</span></h2>
+                <p class="section-desc">Real moments from our regular on-ground initiatives in Raisen and surrounding communities.</p>
             </div>
-            <div class="gallery-grid">
-                <div class="gallery-item gallery-item--wide">
-                    <img src="https://images.unsplash.com/photo-1497375638960-ca368c7231e4?w=800&q=80"
-                        alt="Volunteers distributing educational materials to children" loading="lazy">
-                    <div class="gallery-caption">Education Drive — Distributing learning materials</div>
+
+            <!-- Gallery Category Filter Tabs -->
+            <div class="gallery-filter-bar" role="tablist" aria-label="Gallery category filters">
+                <button type="button" class="gallery-filter-btn active" data-filter="all" role="tab" aria-selected="true">
+                    <span>All Initiatives</span> <span class="filter-count">(20)</span>
+                </button>
+                <button type="button" class="gallery-filter-btn" data-filter="water" role="tab" aria-selected="false">
+                    <span>Jal Seva (Water Relief)</span> <span class="filter-count">(14)</span>
+                </button>
+                <button type="button" class="gallery-filter-btn" data-filter="car" role="tab" aria-selected="false">
+                    <span>Emergency Road Assistance</span> <span class="filter-count">(5)</span>
+                </button>
+                <button type="button" class="gallery-filter-btn" data-filter="food" role="tab" aria-selected="false">
+                    <span>Food Seva (Annadanam)</span> <span class="filter-count">(1)</span>
+                </button>
+            </div>
+
+            <div class="gallery-grid" id="gallery-grid">
+                <!-- Water Seva 1 (Cover / Wide Highlight) -->
+                <figure class="gallery-item gallery-item--wide" data-category="water">
+                    <img src="images/gallery/water-seva/water-seva-1.webp"
+                        alt="ShivaUmeed Foundation volunteers at Water Distribution Camp, Raisen"
+                        loading="lazy" width="720" height="480">
+                    <div class="gallery-badge">Jal Seva</div>
+                    <figcaption class="gallery-caption">
+                        <span class="gallery-tag">Jal Seva · Community Camp</span>
+                        <h4>Free Clean Drinking Water Distribution</h4>
+                        <p>Dedicated volunteers serving cold drinking water to pilgrims and villagers on hot days in Raisen.</p>
+                    </figcaption>
+                    <button type="button" class="gallery-zoom-btn" aria-label="View photo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                    </button>
+                </figure>
+
+                <!-- Water Seva 5 (Action Horizontal) -->
+                <figure class="gallery-item gallery-item--wide" data-category="water">
+                    <img src="images/gallery/water-seva/water-seva-5.webp"
+                        alt="Serving clean drinking water to villagers"
+                        loading="lazy" width="720" height="405">
+                    <div class="gallery-badge">Jal Seva</div>
+                    <figcaption class="gallery-caption">
+                        <span class="gallery-tag">Direct Relief</span>
+                        <h4>Reaching Every Wayfarer</h4>
+                        <p>Foundation member offering drinking water with care and respect to local travelers.</p>
+                    </figcaption>
+                    <button type="button" class="gallery-zoom-btn" aria-label="View photo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                    </button>
+                </figure>
+
+                <!-- Food Seva 1 -->
+                <figure class="gallery-item" data-category="food">
+                    <img src="images/gallery/food-seva/food-seva-1.webp"
+                        alt="Food distribution seva by ShivaUmeed Foundation"
+                        loading="lazy" width="400" height="500">
+                    <div class="gallery-badge">Food Seva</div>
+                    <figcaption class="gallery-caption">
+                        <span class="gallery-tag">Annadanam</span>
+                        <h4>Fresh Meal Distribution</h4>
+                        <p>Providing freshly prepared hot nutritious meals to underprivileged community members.</p>
+                    </figcaption>
+                    <button type="button" class="gallery-zoom-btn" aria-label="View photo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                    </button>
+                </figure>
+
+                <!-- Car Seva 1 (Cover / Highlight) -->
+                <figure class="gallery-item" data-category="car">
+                    <img src="images/gallery/car-seva/car-seva-1.webp"
+                        alt="Volunteers providing emergency highway car repair support"
+                        loading="lazy" width="400" height="500">
+                    <div class="gallery-badge">Emergency Aid</div>
+                    <figcaption class="gallery-caption">
+                        <span class="gallery-tag">Highway Assistance</span>
+                        <h4>On-Spot Tire Replacement Support</h4>
+                        <p>Helping stranded travelers on rural highways with mechanical aid &amp; tire replacement.</p>
+                    </figcaption>
+                    <button type="button" class="gallery-zoom-btn" aria-label="View photo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                    </button>
+                </figure>
+
+                <!-- Water Seva 2 (HD Landscape) -->
+                <figure class="gallery-item" data-category="water">
+                    <img src="images/gallery/water-seva/water-seva-2.webp"
+                        alt="ShivaUmeed team members at water relief camp"
+                        loading="lazy" width="400" height="300">
+                    <div class="gallery-badge">Jal Seva</div>
+                    <figcaption class="gallery-caption">
+                        <span class="gallery-tag">Youth Volunteers</span>
+                        <h4>Dedicated Team on the Field</h4>
+                        <p>Trained youth volunteers ensuring continuous water supply at community gathering sites.</p>
+                    </figcaption>
+                    <button type="button" class="gallery-zoom-btn" aria-label="View photo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                    </button>
+                </figure>
+
+                <!-- Water Seva 3 (HD Landscape) -->
+                <figure class="gallery-item" data-category="water">
+                    <img src="images/gallery/water-seva/water-seva-3.webp"
+                        alt="Water camp stall with foundation banner"
+                        loading="lazy" width="400" height="300">
+                    <div class="gallery-badge">Jal Seva</div>
+                    <figcaption class="gallery-caption">
+                        <span class="gallery-tag">Hydration Camp</span>
+                        <h4>Drinking Water Counter</h4>
+                        <p>Hygienic, sealed bottled drinking water ready for direct roadside distribution.</p>
+                    </figcaption>
+                    <button type="button" class="gallery-zoom-btn" aria-label="View photo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                    </button>
+                </figure>
+
+                <!-- Car Seva 3 (Volunteers at work) -->
+                <figure class="gallery-item" data-category="car">
+                    <img src="images/gallery/car-seva/car-seva-3.webp"
+                        alt="ShivaUmeed team members fixing a flat tire on rural highway"
+                        loading="lazy" width="400" height="500">
+                    <div class="gallery-badge">Emergency Aid</div>
+                    <figcaption class="gallery-caption">
+                        <span class="gallery-tag">Road Safety</span>
+                        <h4>Prompt Roadside Relief</h4>
+                        <p>No traveler left stranded — our helpline team steps in whenever urgent help is needed.</p>
+                    </figcaption>
+                    <button type="button" class="gallery-zoom-btn" aria-label="View photo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                    </button>
+                </figure>
+
+                <!-- Water Seva 6 (Wide Action) -->
+                <figure class="gallery-item gallery-item--wide" data-category="water">
+                    <img src="images/gallery/water-seva/water-seva-6.webp"
+                        alt="Serving water to passing families on rural road"
+                        loading="lazy" width="720" height="405">
+                    <div class="gallery-badge">Jal Seva</div>
+                    <figcaption class="gallery-caption">
+                        <span class="gallery-tag">Compassion in Action</span>
+                        <h4>Hydrating Rural Commuters</h4>
+                        <p>Offering clean drinking water to elderly villagers, children, and passing motor travelers.</p>
+                    </figcaption>
+                    <button type="button" class="gallery-zoom-btn" aria-label="View photo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                    </button>
+                </figure>
+
+                <!-- Car Seva 4 -->
+                <figure class="gallery-item" data-category="car">
+                    <img src="images/gallery/car-seva/car-seva-4.webp"
+                        alt="Fixing tire nuts and wheel alignment on roadside"
+                        loading="lazy" width="400" height="500">
+                    <div class="gallery-badge">Emergency Aid</div>
+                    <figcaption class="gallery-caption">
+                        <span class="gallery-tag">Ground Support</span>
+                        <h4>Hands-on Emergency Service</h4>
+                        <p>Foundation volunteers working together to get families safely back on their journey.</p>
+                    </figcaption>
+                    <button type="button" class="gallery-zoom-btn" aria-label="View photo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                    </button>
+                </figure>
+
+                <!-- Water Seva 8 (Pouring water) -->
+                <figure class="gallery-item" data-category="water">
+                    <img src="images/gallery/water-seva/water-seva-8.webp"
+                        alt="Volunteer pouring cold water for a thirsty villager"
+                        loading="lazy" width="400" height="500">
+                    <div class="gallery-badge">Jal Seva</div>
+                    <figcaption class="gallery-caption">
+                        <span class="gallery-tag">Direct Service</span>
+                        <h4>One Cup of Water, Countless Smiles</h4>
+                        <p>Providing essential hydration with warmth and dedication.</p>
+                    </figcaption>
+                    <button type="button" class="gallery-zoom-btn" aria-label="View photo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                    </button>
+                </figure>
+
+                <!-- Water Seva 11 (Serving at table) -->
+                <figure class="gallery-item" data-category="water">
+                    <img src="images/gallery/water-seva/water-seva-11.webp"
+                        alt="Volunteer team coordinating water bottles"
+                        loading="lazy" width="400" height="500">
+                    <div class="gallery-badge">Jal Seva</div>
+                    <figcaption class="gallery-caption">
+                        <span class="gallery-tag">Roadside Refreshment</span>
+                        <h4>Continuous Summer Supply</h4>
+                        <p>Stocking fresh drinking water to beat the harsh afternoon heat in Madhya Pradesh.</p>
+                    </figcaption>
+                    <button type="button" class="gallery-zoom-btn" aria-label="View photo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                    </button>
+                </figure>
+
+                <!-- Car Seva 2 -->
+                <figure class="gallery-item" data-category="car">
+                    <img src="images/gallery/car-seva/car-seva-2.webp"
+                        alt="Jack adjustment and tire replacement"
+                        loading="lazy" width="400" height="500">
+                    <div class="gallery-badge">Emergency Aid</div>
+                    <figcaption class="gallery-caption">
+                        <span class="gallery-tag">Highway Rescue</span>
+                        <h4>Technical Aid &amp; Tool Support</h4>
+                        <p>Providing necessary mechanical tools and manpower to solve sudden breakdowns.</p>
+                    </figcaption>
+                    <button type="button" class="gallery-zoom-btn" aria-label="View photo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                    </button>
+                </figure>
+
+                <!-- Water Seva 4 -->
+                <figure class="gallery-item" data-category="water">
+                    <img src="images/gallery/water-seva/water-seva-4.webp"
+                        alt="Volunteers in foundation uniform at water seva point"
+                        loading="lazy" width="400" height="300">
+                    <div class="gallery-badge">Jal Seva</div>
+                    <figcaption class="gallery-caption">
+                        <span class="gallery-tag">Team Spirit</span>
+                        <h4>Together for a Better Tomorrow</h4>
+                        <p>Unified under one mission — to spread hope and unconditional care in every corner.</p>
+                    </figcaption>
+                    <button type="button" class="gallery-zoom-btn" aria-label="View photo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                    </button>
+                </figure>
+
+                <!-- Water Seva 7 -->
+                <figure class="gallery-item gallery-item--wide" data-category="water">
+                    <img src="images/gallery/water-seva/water-seva-7.webp"
+                        alt="Passing refreshments to commuters"
+                        loading="lazy" width="720" height="405">
+                    <div class="gallery-badge">Jal Seva</div>
+                    <figcaption class="gallery-caption">
+                        <span class="gallery-tag">Highway Seva</span>
+                        <h4>Warmth &amp; Refreshment on the Move</h4>
+                        <p>Serving clean drinking water directly to drivers and passengers on transit corridors.</p>
+                    </figcaption>
+                    <button type="button" class="gallery-zoom-btn" aria-label="View photo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                    </button>
+                </figure>
+
+                <!-- Car Seva 5 -->
+                <figure class="gallery-item" data-category="car">
+                    <img src="images/gallery/car-seva/car-seva-5.webp"
+                        alt="Team concluding car repair on roadside"
+                        loading="lazy" width="400" height="500">
+                    <div class="gallery-badge">Emergency Aid</div>
+                    <figcaption class="gallery-caption">
+                        <span class="gallery-tag">Mission Accomplished</span>
+                        <h4>Safety First on Indian Roads</h4>
+                        <p>Ensuring vehicles are safely fitted and tested before resuming travel.</p>
+                    </figcaption>
+                    <button type="button" class="gallery-zoom-btn" aria-label="View photo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                    </button>
+                </figure>
+
+                <!-- Water Seva 9 -->
+                <figure class="gallery-item" data-category="water">
+                    <img src="images/gallery/water-seva/water-seva-9.webp"
+                        alt="Distributing water to local villagers"
+                        loading="lazy" width="400" height="500">
+                    <div class="gallery-badge">Jal Seva</div>
+                    <figcaption class="gallery-caption">
+                        <span class="gallery-tag">Community Outreach</span>
+                        <h4>Every Drop Matters</h4>
+                        <p>Providing direct assistance to rural elderly and laborers working under intense sun.</p>
+                    </figcaption>
+                    <button type="button" class="gallery-zoom-btn" aria-label="View photo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                    </button>
+                </figure>
+
+                <!-- Water Seva 10 -->
+                <figure class="gallery-item" data-category="water">
+                    <img src="images/gallery/water-seva/water-seva-10.webp"
+                        alt="Hydrating travelers in rural Raisen"
+                        loading="lazy" width="400" height="500">
+                    <div class="gallery-badge">Jal Seva</div>
+                    <figcaption class="gallery-caption">
+                        <span class="gallery-tag">Unconditional Seva</span>
+                        <h4>Reaching Every Commuter</h4>
+                        <p>A smile of relief as pilgrims receive clean, refreshing drinking water.</p>
+                    </figcaption>
+                    <button type="button" class="gallery-zoom-btn" aria-label="View photo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                    </button>
+                </figure>
+
+                <!-- Water Seva 12 -->
+                <figure class="gallery-item" data-category="water">
+                    <img src="images/gallery/water-seva/water-seva-12.webp"
+                        alt="Volunteer pouring cold water for thirsty travelers"
+                        loading="lazy" width="400" height="500">
+                    <div class="gallery-badge">Jal Seva</div>
+                    <figcaption class="gallery-caption">
+                        <span class="gallery-tag">Pure Hydration</span>
+                        <h4>Sharing Compassion Daily</h4>
+                        <p>Volunteers on the frontline bringing cheer and support to fellow citizens.</p>
+                    </figcaption>
+                    <button type="button" class="gallery-zoom-btn" aria-label="View photo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                    </button>
+                </figure>
+
+                <!-- Water Seva 13 -->
+                <figure class="gallery-item" data-category="water">
+                    <img src="images/gallery/water-seva/water-seva-13.webp"
+                        alt="Serving water to passing vehicles"
+                        loading="lazy" width="400" height="500">
+                    <div class="gallery-badge">Jal Seva</div>
+                    <figcaption class="gallery-caption">
+                        <span class="gallery-tag">Highway Service</span>
+                        <h4>Quenching Thirst Across Kilometers</h4>
+                        <p>Ensuring no traveller goes thirsty during long journeys across rural Madhya Pradesh.</p>
+                    </figcaption>
+                    <button type="button" class="gallery-zoom-btn" aria-label="View photo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                    </button>
+                </figure>
+
+                <!-- Water Seva 14 -->
+                <figure class="gallery-item" data-category="water">
+                    <img src="images/gallery/water-seva/water-seva-14.webp"
+                        alt="Community hydration camp in action"
+                        loading="lazy" width="400" height="500">
+                    <div class="gallery-badge">Jal Seva</div>
+                    <figcaption class="gallery-caption">
+                        <span class="gallery-tag">Seva in Action</span>
+                        <h4>Serving the Community</h4>
+                        <p>Dedicated efforts to serve pure drinking water with total dedication.</p>
+                    </figcaption>
+                    <button type="button" class="gallery-zoom-btn" aria-label="View photo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                    </button>
+                </figure>
+            </div>
+
+            <!-- Social Media Live Banner -->
+            <div class="gallery-social-cta">
+                <div class="social-cta-content">
+                    <div class="social-cta-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    </div>
+                    <div>
+                        <h3 class="social-cta-title">Follow Our Daily Ground Work</h3>
+                        <p class="social-cta-desc">Watch live videos, relief stories, and daily updates directly on our official channels.</p>
+                    </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1593113630400-ea4288922497?w=600&q=80"
-                        alt="Health camp in a rural village" loading="lazy">
-                    <div class="gallery-caption">Health Camp — Free medical check-ups</div>
+                <div class="social-cta-actions">
+                    <a href="https://www.instagram.com/shiva_umeed_?stkn=MTgyYmZ5MGg1ODlycQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        Instagram
+                    </a>
+                    <a href="https://www.youtube.com/@ShivaUmeedFoundation" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                        YouTube
+                    </a>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=600&q=80"
-                        alt="Tree plantation drive" loading="lazy">
-                    <div class="gallery-caption">Green Drive — Tree Plantation</div>
+            </div>
+        </div>
+
+        <!-- Lightbox Modal -->
+        <div id="gallery-lightbox" class="gallery-lightbox" aria-hidden="true" role="dialog" aria-label="Photo preview">
+            <div class="lightbox-overlay" data-close-lightbox></div>
+            <div class="lightbox-container">
+                <button type="button" class="lightbox-close" data-close-lightbox aria-label="Close photo preview">&times;</button>
+                <button type="button" class="lightbox-nav lightbox-prev" aria-label="Previous photo">&#10094;</button>
+                <button type="button" class="lightbox-nav lightbox-next" aria-label="Next photo">&#10095;</button>
+                <div class="lightbox-image-wrap">
+                    <img id="lightbox-img" src="" alt="Enlarged photo view">
                 </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80"
-                        alt="Skill development workshop for women" loading="lazy">
-                    <div class="gallery-caption">Skill Workshop — Empowering Youth</div>
-                </div>
-                <div class="gallery-item gallery-item--wide">
-                    <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=800&q=80"
-                        alt="Community event with volunteers and villagers" loading="lazy">
-                    <div class="gallery-caption">Community Event — Together for a brighter future</div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=600&q=80"
-                        alt="Donation and charity distribution" loading="lazy">
-                    <div class="gallery-caption">Relief Work — Reaching the unreached</div>
-                </div>
+                <div class="lightbox-caption" id="lightbox-caption"></div>
             </div>
         </div>
     </section>

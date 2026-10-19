@@ -316,4 +316,113 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // ---- Gallery Category Filtering & Lightbox Modal ----
+    const galleryFilterBtns = document.querySelectorAll('.gallery-filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const lightbox = document.getElementById('gallery-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const lightboxPrev = document.querySelector('.lightbox-prev');
+    const lightboxNext = document.querySelector('.lightbox-next');
+
+    // Category Filtering
+    galleryFilterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            galleryFilterBtns.forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-selected', 'false');
+            });
+            btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
+
+            const filter = btn.dataset.filter;
+            galleryItems.forEach(item => {
+                const category = item.dataset.category;
+                if (filter === 'all' || category === filter) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        });
+    });
+
+    // Lightbox Functionality
+    if (lightbox && lightboxImg) {
+        let currentVisibleItems = [];
+        let currentIndex = -1;
+
+        function updateVisibleList() {
+            currentVisibleItems = Array.from(galleryItems).filter(item => !item.classList.contains('hidden'));
+        }
+
+        function openLightbox(index) {
+            updateVisibleList();
+            if (index < 0 || index >= currentVisibleItems.length) return;
+            currentIndex = index;
+
+            const item = currentVisibleItems[currentIndex];
+            const img = item.querySelector('img');
+            const heading = item.querySelector('figcaption h4')?.textContent || '';
+            const desc = item.querySelector('figcaption p')?.textContent || '';
+            const tag = item.querySelector('.gallery-tag')?.textContent || '';
+
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt || 'Gallery photo';
+            lightboxCaption.innerHTML = `<strong>${heading}</strong>${tag ? ` <span style="opacity:0.7">(${tag})</span>` : ''}<br><span style="font-size:0.85rem;opacity:0.9;">${desc}</span>`;
+
+            lightbox.classList.add('active');
+            lightbox.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            lightbox.setAttribute('aria-hidden', 'true');
+            lightboxImg.src = '';
+            document.body.style.overflow = '';
+        }
+
+        function showNext() {
+            updateVisibleList();
+            if (currentVisibleItems.length === 0) return;
+            currentIndex = (currentIndex + 1) % currentVisibleItems.length;
+            openLightbox(currentIndex);
+        }
+
+        function showPrev() {
+            updateVisibleList();
+            if (currentVisibleItems.length === 0) return;
+            currentIndex = (currentIndex - 1 + currentVisibleItems.length) % currentVisibleItems.length;
+            openLightbox(currentIndex);
+        }
+
+        // Attach click to gallery items
+        galleryItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                updateVisibleList();
+                const idx = currentVisibleItems.indexOf(item);
+                if (idx !== -1) {
+                    openLightbox(idx);
+                }
+            });
+        });
+
+        // Close triggers
+        lightbox.querySelectorAll('[data-close-lightbox]').forEach(el => {
+            el.addEventListener('click', closeLightbox);
+        });
+
+        if (lightboxPrev) lightboxPrev.addEventListener('click', (e) => { e.stopPropagation(); showPrev(); });
+        if (lightboxNext) lightboxNext.addEventListener('click', (e) => { e.stopPropagation(); showNext(); });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') showNext();
+            if (e.key === 'ArrowLeft') showPrev();
+        });
+    }
+
 });
