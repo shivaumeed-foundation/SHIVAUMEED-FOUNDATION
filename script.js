@@ -476,9 +476,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const audioToastText = document.getElementById('audio-toast-text');
     let toastTimeout = null;
 
-    function showAudioToast(message, duration = 3000) {
+    function showAudioToast(message, duration = 3500) {
         if (!audioToast || !audioToastText) return;
         audioToastText.textContent = message;
+        
+        const iconSpan = audioToast.querySelector('.audio-toast-icon');
+        if (iconSpan) {
+            iconSpan.textContent = message.includes('muted') ? '🔇' : '🎵';
+        }
+
         audioToast.classList.add('show');
         if (toastTimeout) clearTimeout(toastTimeout);
         toastTimeout = setTimeout(() => {
@@ -502,72 +508,93 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (bgAudio && audioToggle) {
-        // Target ambient background volume
-        bgAudio.volume = 0.35;
+        let isUserExplicitlyMuted = false;
+        const TARGET_VOLUME = 0.55;
 
-        // Check if user previously muted
-        let isMutedPref = false;
-        try {
-            isMutedPref = localStorage.getItem('shiva_audio_muted') === 'true';
-        } catch (e) {}
+        bgAudio.volume = TARGET_VOLUME;
+        bgAudio.muted = false;
 
-        if (isMutedPref) {
-            updateAudioUI(false);
-        } else {
-            // Attempt autoplay
-            const playPromise = bgAudio.play();
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
+        const gestureEvents = ['pointerdown', 'touchstart', 'click', 'keydown', 'scroll'];
+
+        function handleFirstInteraction(e) {
+            // Ignore if the interaction is on the audio toggle button itself
+            if (e && e.target && e.target.closest && e.target.closest('#audio-toggle')) {
+                return;
+            }
+
+            if (!isUserExplicitlyMuted) {
+                bgAudio.muted = false;
+                bgAudio.volume = TARGET_VOLUME;
+                if (bgAudio.paused) {
+                    bgAudio.play().then(() => {
+                        updateAudioUI(true);
+                        showAudioToast('Ambient background music playing', 3500);
+                    }).catch(() => {});
+                } else {
                     updateAudioUI(true);
                     showAudioToast('Ambient background music playing', 3500);
-                }).catch(() => {
-                    // Browser blocked unmuted autoplay without user gesture
-                    updateAudioUI(false);
-
-                    // Start on the first user interaction (click, touch, key, or scroll)
-                    const startOnInteraction = () => {
-                        let currentMutedPref = false;
-                        try {
-                            currentMutedPref = localStorage.getItem('shiva_audio_muted') === 'true';
-                        } catch (e) {}
-
-                        if (!currentMutedPref && bgAudio.paused) {
-                            bgAudio.volume = 0.35;
-                            bgAudio.play().then(() => {
-                                updateAudioUI(true);
-                                showAudioToast('Ambient background music playing', 3500);
-                            }).catch(() => {});
-                        }
-
-                        ['click', 'touchstart', 'scroll', 'keydown'].forEach(evt => {
-                            window.removeEventListener(evt, startOnInteraction);
-                        });
-                    };
-
-                    ['click', 'touchstart', 'scroll', 'keydown'].forEach(evt => {
-                        window.addEventListener(evt, startOnInteraction, { once: true, passive: true });
-                    });
-                });
+                }
             }
+
+            removeInteractionListeners();
         }
 
-        // Toggle button click listener
-        audioToggle.addEventListener('click', () => {
-            if (!bgAudio.paused) {
+        function removeInteractionListeners() {
+            gestureEvents.forEach(evt => {
+                window.removeEventListener(evt, handleFirstInteraction, { capture: true });
+            });
+        }
+
+        function addInteractionListeners() {
+            gestureEvents.forEach(evt => {
+                window.addEventListener(evt, handleFirstInteraction, { capture: true, passive: true });
+            });
+        }
+
+        // Attempt direct unmuted autoplay on load
+        const startPromise = bgAudio.play();
+        if (startPromise !== undefined) {
+            startPromise.then(() => {
+                // Succeeded unmuted!
+                bgAudio.muted = false;
+                updateAudioUI(true);
+                showAudioToast('Ambient background music playing', 3500);
+            }).catch(() => {
+                // Browser blocked unmuted autoplay -> start muted and listen for first interaction
+                bgAudio.muted = true;
+                bgAudio.play().then(() => {
+                    // Playing muted in background; will unmute on first gesture
+                    updateAudioUI(true);
+                }).catch(() => {
+                    updateAudioUI(false);
+                });
+
+                // Listen for first interaction to unmute and play with sound
+                addInteractionListeners();
+            });
+        } else {
+            addInteractionListeners();
+        }
+
+        // Audio toggle button click listener
+        audioToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+
+            if (!bgAudio.paused && !bgAudio.muted) {
+                // Mute
+                isUserExplicitlyMuted = true;
                 bgAudio.pause();
+                bgAudio.muted = true;
                 updateAudioUI(false);
-                try {
-                    localStorage.setItem('shiva_audio_muted', 'true');
-                } catch (e) {}
-                showAudioToast('Background music muted');
+                showAudioToast('Background music muted', 3000);
             } else {
-                bgAudio.volume = 0.35;
+                // Unmute and Play
+                isUserExplicitlyMuted = false;
+                bgAudio.muted = false;
+                bgAudio.volume = TARGET_VOLUME;
                 bgAudio.play().then(() => {
                     updateAudioUI(true);
-                    try {
-                        localStorage.setItem('shiva_audio_muted', 'false');
-                    } catch (e) {}
-                    showAudioToast('Background music playing');
+                    showAudioToast('Ambient background music playing', 3500);
                 }).catch((err) => {
                     console.warn('Playback error:', err);
                 });

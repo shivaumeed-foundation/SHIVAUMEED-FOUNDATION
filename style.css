@@ -588,24 +588,38 @@ address {
     bottom: 30px;
     left: 30px;
     z-index: 999;
-    background: rgba(15, 29, 61, 0.94);
-    color: var(--white);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(201, 168, 76, 0.4);
-    padding: 0.65rem 1.15rem;
+    background: rgba(15, 29, 61, 0.95);
+    color: #ffffff !important;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1.5px solid rgba(201, 168, 76, 0.55);
+    padding: 0.65rem 1.25rem;
     border-radius: var(--radius-full);
-    font-size: 0.85rem;
-    font-weight: 500;
+    font-size: 0.88rem;
+    font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 8px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    gap: 10px;
+    box-shadow: 0 4px 20px rgba(201, 168, 76, 0.25), 0 10px 28px rgba(0, 0, 0, 0.35);
     opacity: 0;
     visibility: hidden;
     transform: translateY(15px);
-    transition: all 0.4s var(--ease-out);
+    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     pointer-events: none;
+}
+
+.audio-toast-icon {
+    font-size: 1.15rem;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.audio-toast-text {
+    color: #ffffff !important;
+    font-weight: 600;
+    letter-spacing: 0.01em;
 }
 
 .audio-toast.show {
@@ -2981,6 +2995,18 @@ address {
 [data-theme="dark"] .btn-secondary:hover {
     background: var(--gold);
     color: #0b1120;
+}
+
+/* Audio toast in dark mode */
+[data-theme="dark"] .audio-toast {
+    background: rgba(18, 27, 46, 0.96);
+    color: #ffffff !important;
+    border: 1.5px solid rgba(242, 201, 109, 0.65);
+    box-shadow: 0 4px 20px rgba(242, 201, 109, 0.2), 0 12px 32px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="dark"] .audio-toast-text {
+    color: #ffffff !important;
 }
 
 /* ---- Print Styles ---- */
