@@ -1251,14 +1251,15 @@ address {
 .gallery-social-cta {
     margin-top: var(--space-3xl);
     padding: var(--space-xl) var(--space-2xl);
-    background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+    background: linear-gradient(135deg, #0a142a 0%, var(--navy-deep) 40%, var(--navy) 100%);
     border-radius: var(--radius-xl);
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: var(--space-xl);
     color: var(--white);
-    box-shadow: 0 10px 30px rgba(15, 29, 61, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 35px rgba(10, 20, 42, 0.35);
 }
 
 .social-cta-content {
@@ -1288,7 +1289,7 @@ address {
 }
 
 .social-cta-desc {
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(255, 255, 255, 0.85);
     font-size: 0.9rem;
     margin: 0;
 }
@@ -1303,11 +1304,12 @@ address {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.6rem 1.1rem;
+    padding: 0.65rem 1.25rem;
     border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.08);
     color: var(--white);
-    font-size: 0.85rem;
+    font-size: 0.88rem;
     font-weight: 600;
     text-decoration: none;
     transition: all var(--transition-fast);
@@ -1315,8 +1317,9 @@ address {
 
 .btn-outline-light:hover {
     background: var(--gold);
-    color: var(--navy-dark);
+    color: var(--navy-deep);
     border-color: var(--gold);
+    box-shadow: 0 4px 15px rgba(201, 168, 76, 0.35);
 }
 
 /* Lightbox Modal */
@@ -1426,7 +1429,7 @@ address {
 
 .lightbox-nav:hover {
     background: var(--gold);
-    color: var(--navy-dark);
+    color: var(--navy-deep);
     border-color: var(--gold);
 }
 
