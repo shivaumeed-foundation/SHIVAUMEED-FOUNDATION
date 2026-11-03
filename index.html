@@ -6,7 +6,7 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-924S4V9QSP"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', 'G-924S4V9QSP');
@@ -24,8 +24,8 @@
     <!-- Open Graph / WhatsApp / Facebook / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://shivaumeedfoundation.org/">
-    <meta property="og:site_name" content="SHIVAUMEED-FOUNDATION">
-    <meta property="og:title" content="SHIVAUMEED-FOUNDATION — Hope in Every Village, Change in Every Life">
+    <meta property="og:site_name" content="SHIVAUMEED- FOUNDATION">
+    <meta property="og:title" content="SHIVAUMEED- FOUNDATION — Hope in Every Village, Change in Every Life">
     <meta property="og:description"
         content="A Section 8 non-profit company dedicated to education, skill development, healthcare, women empowerment, and rural development in rural India.">
     <meta property="og:image" content="https://shivaumeedfoundation.org/cover_page.jpeg">
@@ -33,13 +33,13 @@
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1600">
     <meta property="og:image:height" content="595">
-    <meta property="og:image:alt" content="SHIVAUMEED-FOUNDATION Cover">
+    <meta property="og:image:alt" content="SHIVAUMEED- FOUNDATION Cover">
     <meta property="og:image" content="https://shivaumeedfoundation.org/logo.jpeg">
     <meta property="og:image:secure_url" content="https://shivaumeedfoundation.org/logo.jpeg">
     <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1080">
     <meta property="og:image:height" content="1080">
-    <meta property="og:image:alt" content="SHIVAUMEED-FOUNDATION Logo">
+    <meta property="og:image:alt" content="SHIVAUMEED- FOUNDATION Logo">
     <meta property="og:locale" content="en_IN">
 
     <!-- Fallback image tag for messaging apps -->
@@ -48,13 +48,13 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://shivaumeedfoundation.org/">
-    <meta name="twitter:title" content="SHIVAUMEED-FOUNDATION — A Better Tomorrow Begins With a Small Hope">
+    <meta name="twitter:title" content="SHIVAUMEED- FOUNDATION — A Better Tomorrow Begins With a Small Hope">
     <meta name="twitter:description"
         content="Join us in building a brighter future through education, healthcare, women empowerment, and rural development.">
     <meta name="twitter:image" content="https://shivaumeedfoundation.org/cover_page.jpeg">
-    <meta name="twitter:image:alt" content="SHIVAUMEED-FOUNDATION">
+    <meta name="twitter:image:alt" content="SHIVAUMEED- FOUNDATION">
 
-    <title>SHIVAUMEED-FOUNDATION — Hope in Every Village, Change in Every Life | NGO India</title>
+    <title>SHIVAUMEED- FOUNDATION — Hope in Every Village, Change in Every Life | NGO India</title>
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://shivaumeedfoundation.org/">
@@ -81,7 +81,7 @@
     {
         "@context": "https://schema.org",
         "@type": ["Organization", "NGO"],
-        "name": "SHIVAUMEED-FOUNDATION",
+        "name": "SHIVAUMEED- FOUNDATION",
         "alternateName": "ShivaUmeed Foundation",
         "description": "A Section 8 non-profit company working towards education, skill development, healthcare, women empowerment, and rural development in India.",
         "url": "https://shivaumeedfoundation.org/",
@@ -119,13 +119,22 @@
             "https://www.linkedin.com/company/shivaumeed-foundation/"
         ],
         "foundingLocation": "Raisen, Madhya Pradesh, India",
+        "foundingDate": "2026-10-12",
+        "founder": [
+            {"@type": "Person", "name": "Gourav Chouksey"},
+            {"@type": "Person", "name": "Poonam Chouksey"}
+        ],
+        "identifier": [
+            {"@type": "PropertyValue", "name": "CIN", "value": "U88900MP2026NPL087595"},
+            {"@type": "PropertyValue", "name": "DARPAN ID", "value": "MP/2026/1251149"}
+        ],
         "nonprofitStatus": "Section 8 Company"
     }
     </script>
 
     <!-- Theme initialization script (prevents theme flash) -->
     <script>
-        (function() {
+        (function () {
             try {
                 var savedTheme = localStorage.getItem('shiva_theme');
                 if (savedTheme === 'dark' || (!savedTheme && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -133,7 +142,7 @@
                 } else {
                     document.documentElement.setAttribute('data-theme', 'light');
                 }
-            } catch (e) {}
+            } catch (e) { }
         })();
     </script>
 
@@ -152,10 +161,10 @@
     <!-- ====== NAVIGATION ====== -->
     <nav id="navbar" aria-label="Main navigation">
         <div class="nav-container">
-            <a href="#home" class="nav-logo" aria-label="SHIVAUMEED-FOUNDATION Home">
-                <img src="logo.jpeg" alt="SHIVAUMEED-FOUNDATION Logo" width="48" height="48">
+            <a href="#home" class="nav-logo" aria-label="SHIVAUMEED- FOUNDATION Home">
+                <img src="logo.jpeg" alt="SHIVAUMEED- FOUNDATION Logo" width="48" height="48">
                 <div class="nav-logo-text">
-                    <span class="nav-brand">SHIVAUMEED-FOUNDATION</span>
+                    <span class="nav-brand">SHIVAUMEED- FOUNDATION</span>
                 </div>
             </a>
 
@@ -163,6 +172,7 @@
                 <ul id="nav-menu" class="nav-menu">
                     <li><a href="#home" class="nav-link active">Home</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#certifications" class="nav-link">Certificates</a></li>
                     <li><a href="#causes" class="nav-link">Our Causes</a></li>
                     <li><a href="#impact" class="nav-link">Impact</a></li>
                     <li><a href="#gallery" class="nav-link">Gallery</a></li>
@@ -173,11 +183,16 @@
 
                 <div class="nav-utilities">
                     <!-- Dark Mode Toggle Button -->
-                    <button id="theme-toggle" class="nav-ctrl-btn theme-btn" aria-label="Toggle dark mode" title="Toggle dark mode">
-                        <svg class="theme-icon icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <button id="theme-toggle" class="nav-ctrl-btn theme-btn" aria-label="Toggle dark mode"
+                        title="Toggle dark mode">
+                        <svg class="theme-icon icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
                             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                         </svg>
-                        <svg class="theme-icon icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg class="theme-icon icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
                             <circle cx="12" cy="12" r="5"></circle>
                             <line x1="12" y1="1" x2="12" y2="3"></line>
                             <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -191,14 +206,19 @@
                     </button>
 
                     <!-- Background Music / Speaker Mute Button -->
-                    <button id="audio-toggle" class="nav-ctrl-btn audio-btn" aria-label="Mute background music" title="Mute background music">
+                    <button id="audio-toggle" class="nav-ctrl-btn audio-btn" aria-label="Mute background music"
+                        title="Mute background music">
                         <span class="audio-icon-wrap">
-                            <svg class="audio-icon icon-playing" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg class="audio-icon icon-playing" xmlns="http://www.w3.org/2000/svg" width="18"
+                                height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
                                 <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
                                 <path class="wave-1" d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
                                 <path class="wave-2" d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
                             </svg>
-                            <svg class="audio-icon icon-muted" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <svg class="audio-icon icon-muted" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
                                 <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
                                 <line x1="23" y1="9" x2="17" y2="15"></line>
                                 <line x1="17" y1="9" x2="23" y2="15"></line>
@@ -224,14 +244,14 @@
     <!-- ====== HERO SECTION ====== -->
     <header id="home" class="hero">
         <div class="hero-bg">
-            <img src="images/gallery/bg-children.webp"
-                alt="Children supported by ShivaUmeed Foundation" loading="eager">
+            <img src="images/gallery/bg-children.webp" alt="Children supported by ShivaUmeed Foundation"
+                loading="eager">
             <div class="hero-overlay"></div>
         </div>
         <div class="hero-content">
             <p class="hero-tagline-hindi">हर गाँव में उम्मीद... हर जीवन में बदलाव।</p>
             <h1 class="hero-title">A Better Tomorrow Begins<br>With a <span class="highlight">Small Hope</span></h1>
-            <p class="hero-subtitle">SHIVAUMEED-FOUNDATION is a Section 8 non-profit company dedicated to transforming
+            <p class="hero-subtitle">SHIVAUMEED- FOUNDATION is a Section 8 non-profit company dedicated to transforming
                 lives through education, healthcare, skill development, women empowerment, and rural development across
                 India.</p>
             <div class="hero-actions">
@@ -240,14 +260,24 @@
             </div>
             <div class="hero-tax-badge">
                 <span class="tax-badge-pill">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        <path d="m9 12 2 2 4-4"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                        aria-hidden="true">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        <path d="m9 12 2 2 4-4" />
                     </svg>
                     Tax Benefit
                 </span>
                 <p class="hero-tax-text">
-                    Section 80G of the <a href="https://www.incometaxindia.gov.in/w/section-80g-56" target="_blank" rel="noopener noreferrer" class="tax-link">Income Tax Act</a> allows taxpayers to claim tax deductions for donations made to eligible charitable institutions, funds, and relief organizations. <span class="tax-citations">[<a href="https://www.incometaxindia.gov.in/w/section-80g-56" target="_blank" rel="noopener noreferrer" class="tax-cite-link" title="Income Tax India - Section 80G">1</a>, <a href="https://www.smfgindiacredit.com/knowledge-center/section-80g-deduction.aspx" target="_blank" rel="noopener noreferrer" class="tax-cite-link" title="Section 80G Tax Deduction Guide">2</a>]</span>
+                    Section 80G of the <a href="https://www.incometaxindia.gov.in/w/section-80g-56" target="_blank"
+                        rel="noopener noreferrer" class="tax-link">Income Tax Act</a> allows taxpayers to claim tax
+                    deductions for donations made to eligible charitable institutions, funds, and relief organizations.
+                    <span class="tax-citations">[<a href="https://www.incometaxindia.gov.in/w/section-80g-56"
+                            target="_blank" rel="noopener noreferrer" class="tax-cite-link"
+                            title="Income Tax India - Section 80G">1</a>, <a
+                            href="https://www.smfgindiacredit.com/knowledge-center/section-80g-deduction.aspx"
+                            target="_blank" rel="noopener noreferrer" class="tax-cite-link"
+                            title="Section 80G Tax Deduction Guide">2</a>]</span>
                 </p>
             </div>
             <div class="hero-pillars">
@@ -393,7 +423,366 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Official Credentials Summary Strip -->
+                    <div class="about-credentials-box">
+                        <div class="about-cred-item">
+                            <span class="cred-label">CIN:</span>
+                            <strong class="cred-val">U88900MP2026NPL087595</strong>
+                        </div>
+                        <div class="about-cred-item">
+                            <span class="cred-label">DARPAN ID:</span>
+                            <strong class="cred-val">MP/2026/1251149</strong>
+                        </div>
+                        <div class="about-cred-item">
+                            <span class="cred-label">Registration:</span>
+                            <strong class="cred-val">12/10/2026</strong>
+                        </div>
+                        <div class="about-cred-item">
+                            <span class="cred-label">Directors:</span>
+                            <strong class="cred-val">Gourav Chouksey, Poonam Chouksey</strong>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== CERTIFICATIONS & STATUTORY IDENTITIES ====== -->
+    <section id="certifications" class="certifications section" aria-labelledby="certifications-heading">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Trust &amp; Statutory Compliance</span>
+                <h2 id="certifications-heading" class="section-title">Government Registrations &amp; <span
+                        class="highlight">Certifications</span></h2>
+                <p class="section-desc">SHIVAUMEED- FOUNDATION is a government-registered Section 8 non-profit company
+                    operating with 100% transparency, statutory compliance, and official accreditation.</p>
+            </div>
+
+            <!-- Official Statutory Identities Bar -->
+            <div class="identity-highlights" aria-label="Official Statutory Identity Credentials">
+                <!-- CIN Card -->
+                <div class="identity-card" id="identity-cin">
+                    <div class="identity-icon-wrap" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            <path d="m9 12 2 2 4-4" />
+                        </svg>
+                    </div>
+                    <div class="identity-info">
+                        <span class="identity-label">Corporate Identity Number (CIN)</span>
+                        <div class="identity-val-row">
+                            <strong class="identity-val" id="val-cin">U88900MP2026NPL087595</strong>
+                            <button type="button" class="identity-copy-btn" data-copy="U88900MP2026NPL087595"
+                                title="Copy CIN to clipboard" aria-label="Copy Corporate Identity Number">
+                                <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                                </svg>
+                                <span class="copy-status">Copy</span>
+                            </button>
+                        </div>
+                        <span class="identity-sub">Ministry of Corporate Affairs · Govt. of India</span>
+                    </div>
+                </div>
+
+                <!-- DARPAN ID Card -->
+                <div class="identity-card" id="identity-darpan">
+                    <div class="identity-icon-wrap" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="m4.93 4.93 4.24 4.24" />
+                            <path d="m14.83 9.17 4.24-4.24" />
+                            <path d="m14.83 14.83 4.24 4.24" />
+                            <path d="m9.17 14.83-4.24 4.24" />
+                            <circle cx="12" cy="12" r="4" />
+                        </svg>
+                    </div>
+                    <div class="identity-info">
+                        <span class="identity-label">NGO DARPAN ID</span>
+                        <div class="identity-val-row">
+                            <strong class="identity-val" id="val-darpan">MP/2026/1251149</strong>
+                            <button type="button" class="identity-copy-btn" data-copy="MP/2026/1251149"
+                                title="Copy DARPAN ID to clipboard" aria-label="Copy DARPAN ID">
+                                <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                                </svg>
+                                <span class="copy-status">Copy</span>
+                            </button>
+                        </div>
+                        <span class="identity-sub">NITI Aayog Portal · Government of India</span>
+                    </div>
+                </div>
+
+                <!-- Registration Date Card -->
+                <div class="identity-card" id="identity-regdate">
+                    <div class="identity-icon-wrap" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                            <line x1="16" y1="2" x2="16" y2="6" />
+                            <line x1="8" y1="2" x2="8" y2="6" />
+                            <line x1="3" y1="10" x2="21" y2="10" />
+                        </svg>
+                    </div>
+                    <div class="identity-info">
+                        <span class="identity-label">Registration Date</span>
+                        <div class="identity-val-row">
+                            <strong class="identity-val">12/10/2026</strong>
+                        </div>
+                        <span class="identity-sub">Date of Incorporation under Companies Act, 2013</span>
+                    </div>
+                </div>
+
+                <!-- Directors Card -->
+                <div class="identity-card" id="identity-directors">
+                    <div class="identity-icon-wrap" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                    </div>
+                    <div class="identity-info">
+                        <span class="identity-label">Board of Directors</span>
+                        <div class="identity-val-row">
+                            <strong class="identity-val">Gourav Chouksey, Poonam Chouksey</strong>
+                        </div>
+                        <span class="identity-sub">Founding Directors &amp; Governing Body</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications Showcase Grid -->
+            <div class="certifications-grid" style="--cert-count:5;">
+                <!-- 1. Certificate of Incorporation -->
+                <article class="cert-card" data-cert-index="0" tabindex="0" role="button"
+                    aria-label="Open Certificate of Incorporation PDF">
+                    <div class="cert-badge">Govt. of India · MCA</div>
+                    <div class="cert-thumb-container">
+                        <img src="Certifications%20Thumbnails/CERTIFICATE%20OF%20INCORPORATION%20SHIVAUMEED-%20FOUNDATION.png"
+                            alt="Certificate of Incorporation - ShivaUmeed Foundation" loading="lazy"
+                            class="cert-thumb-img">
+                        <div class="cert-overlay">
+                            <span class="cert-view-pill">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                    <circle cx="12" cy="12" r="3" />
+                                </svg>
+                                <span>Click to View PDF</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="cert-body">
+                        <div class="cert-meta">
+                            <span class="cert-tag">Incorporation</span>
+                            <span class="cert-ref">CIN: U88900MP2026NPL087595</span>
+                        </div>
+                        <h3 class="cert-title">Certificate of Incorporation</h3>
+                        <p class="cert-desc">Officially registered under Section 8 of the Companies Act, 2013 (Rule 18
+                            Companies Rules, 2014) by the Ministry of Corporate Affairs, Government of India.</p>
+                        <div class="cert-card-footer">
+                            <span class="cert-open-btn">
+                                <span>View PDF Document</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                    <polyline points="14 2 14 8 20 8" />
+                                    <line x1="16" y1="13" x2="8" y2="13" />
+                                    <line x1="16" y1="17" x2="8" y2="17" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 2. Section 8 Licence -->
+                <article class="cert-card" data-cert-index="1" tabindex="0" role="button"
+                    aria-label="Open Section 8 Non-Profit Licence PDF">
+                    <div class="cert-badge">Section 8 License</div>
+                    <div class="cert-thumb-container">
+                        <img src="Certifications%20Thumbnails/Lisence%20SHIVAUMEED-%20FOUNDATION.png"
+                            alt="Section 8 Company License - ShivaUmeed Foundation" loading="lazy"
+                            class="cert-thumb-img">
+                        <div class="cert-overlay">
+                            <span class="cert-view-pill">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                    <circle cx="12" cy="12" r="3" />
+                                </svg>
+                                <span>Click to View PDF</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="cert-body">
+                        <div class="cert-meta">
+                            <span class="cert-tag">Statutory License</span>
+                            <span class="cert-ref">Section 8(1) MCA</span>
+                        </div>
+                        <h3 class="cert-title">Section 8 Non-Profit License</h3>
+                        <p class="cert-desc">Government license granted under Section 8(1) of the Companies Act, 2013 to
+                            operate dedicated to social welfare, education, and healthcare without profit motive.</p>
+                        <div class="cert-card-footer">
+                            <span class="cert-open-btn">
+                                <span>View PDF Document</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                    <polyline points="14 2 14 8 20 8" />
+                                    <line x1="16" y1="13" x2="8" y2="13" />
+                                    <line x1="16" y1="17" x2="8" y2="17" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 3. NGO Darpan Registration Certificate -->
+                <article class="cert-card" data-cert-index="2" tabindex="0" role="button"
+                    aria-label="Open NGO Darpan Registration Certificate PDF">
+                    <div class="cert-badge">NITI Aayog · Govt. of India</div>
+                    <div class="cert-thumb-container">
+                        <img src="Certifications%20Thumbnails/SHIVAUMEED-_FOUNDATION%20Darpan%20Registration%20Certificate_Page_1.png"
+                            alt="NGO Darpan Registration Certificate - ShivaUmeed Foundation" loading="lazy"
+                            class="cert-thumb-img">
+                        <div class="cert-overlay">
+                            <span class="cert-view-pill">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                    <circle cx="12" cy="12" r="3" />
+                                </svg>
+                                <span>Click to View PDF</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="cert-body">
+                        <div class="cert-meta">
+                            <span class="cert-tag">National Portal</span>
+                            <span class="cert-ref">DARPAN ID: MP/2026/1251149</span>
+                        </div>
+                        <h3 class="cert-title">NGO Darpan Registration</h3>
+                        <p class="cert-desc">Verified registration with NITI Aayog's NGO-DARPAN portal, certifying
+                            eligibility for Government of India schemes, partnerships, and national grants.</p>
+                        <div class="cert-card-footer">
+                            <span class="cert-open-btn">
+                                <span>View PDF Document</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                    <polyline points="14 2 14 8 20 8" />
+                                    <line x1="16" y1="13" x2="8" y2="13" />
+                                    <line x1="16" y1="17" x2="8" y2="17" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 4. CSR Registration Certificate -->
+                <article class="cert-card" data-cert-index="3" tabindex="0" role="button"
+                    aria-label="Open CSR-1 Registration Certificate PDF">
+                    <div class="cert-badge">CSR-1 Certified</div>
+                    <div class="cert-thumb-container">
+                        <img src="Certifications%20Thumbnails/CSR%20Registration%20Certificate%20SHIVAUMEED- FOUNDATION.png"
+                            alt="CSR-1 Registration Certificate - ShivaUmeed Foundation" loading="lazy"
+                            class="cert-thumb-img">
+                        <div class="cert-overlay">
+                            <span class="cert-view-pill">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                    <circle cx="12" cy="12" r="3" />
+                                </svg>
+                                <span>Click to View PDF</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="cert-body">
+                        <div class="cert-meta">
+                            <span class="cert-tag">CSR Eligible</span>
+                            <span class="cert-ref">Form CSR-1 · MCA</span>
+                        </div>
+                        <h3 class="cert-title">CSR Registration (Form CSR-1)</h3>
+                        <p class="cert-desc">Registered with the Ministry of Corporate Affairs for eligible Corporate
+                            Social Responsibility (CSR) partnerships and CSR funding under Section 135.</p>
+                        <div class="cert-card-footer">
+                            <span class="cert-open-btn">
+                                <span>View PDF Document</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                    <polyline points="14 2 14 8 20 8" />
+                                    <line x1="16" y1="13" x2="8" y2="13" />
+                                    <line x1="16" y1="17" x2="8" y2="17" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 5. ISO 9001:2015 Quality Management System Certificate -->
+                <article class="cert-card" data-cert-index="4" tabindex="0" role="button"
+                    aria-label="Open ISO 9001:2015 Certificate PDF">
+                    <div class="cert-badge">ISO 9001:2015</div>
+                    <div class="cert-thumb-container">
+                        <img src="Certifications%20Thumbnails/SHIVAUMEED-%20FOUNDATION%20ISO%20Quality%20Management%20System%20Certificate.png"
+                            alt="ISO Quality Management System Certificate - ShivaUmeed Foundation" loading="lazy"
+                            class="cert-thumb-img">
+                        <div class="cert-overlay">
+                            <span class="cert-view-pill">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                    <circle cx="12" cy="12" r="3" />
+                                </svg>
+                                <span>Click to View PDF</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="cert-body">
+                        <div class="cert-meta">
+                            <span class="cert-tag">Quality Standard</span>
+                            <span class="cert-ref">Cert No: 1024Q672626</span>
+                        </div>
+                        <h3 class="cert-title">ISO 9001:2015 Certification</h3>
+                        <p class="cert-desc">Internationally recognized Quality Management System (QMS) accreditation
+                            for standards in education, healthcare, and rural community welfare programmes.</p>
+                        <div class="cert-card-footer">
+                            <span class="cert-open-btn">
+                                <span>View PDF Document</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                    <polyline points="14 2 14 8 20 8" />
+                                    <line x1="16" y1="13" x2="8" y2="13" />
+                                    <line x1="16" y1="17" x2="8" y2="17" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
@@ -582,13 +971,16 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-label">Ground Realities &amp; Impact</span>
-                <h2 id="gallery-heading" class="section-title">Our Social Work <span class="highlight">In Action</span></h2>
-                <p class="section-desc">Real moments from our regular on-ground initiatives in Raisen and surrounding communities.</p>
+                <h2 id="gallery-heading" class="section-title">Our Social Work <span class="highlight">In Action</span>
+                </h2>
+                <p class="section-desc">Real moments from our regular on-ground initiatives in Raisen and surrounding
+                    communities.</p>
             </div>
 
             <!-- Gallery Category Filter Tabs -->
             <div class="gallery-filter-bar" role="tablist" aria-label="Gallery category filters">
-                <button type="button" class="gallery-filter-btn active" data-filter="all" role="tab" aria-selected="true">
+                <button type="button" class="gallery-filter-btn active" data-filter="all" role="tab"
+                    aria-selected="true">
                     <span>All Initiatives</span> <span class="filter-count">(20)</span>
                 </button>
                 <button type="button" class="gallery-filter-btn" data-filter="water" role="tab" aria-selected="false">
@@ -606,24 +998,30 @@
                 <!-- Water Seva 1 (Cover / Wide Highlight) -->
                 <figure class="gallery-item gallery-item--wide" data-category="water">
                     <img src="images/gallery/water-seva/water-seva-1.webp"
-                        alt="ShivaUmeed Foundation volunteers at Water Distribution Camp, Raisen"
-                        loading="lazy" width="720" height="480">
+                        alt="ShivaUmeed Foundation volunteers at Water Distribution Camp, Raisen" loading="lazy"
+                        width="720" height="480">
                     <div class="gallery-badge">Jal Seva</div>
                     <figcaption class="gallery-caption">
                         <span class="gallery-tag">Jal Seva · Community Camp</span>
                         <h4>Free Clean Drinking Water Distribution</h4>
-                        <p>Dedicated volunteers serving cold drinking water to pilgrims and villagers on hot days in Raisen.</p>
+                        <p>Dedicated volunteers serving cold drinking water to pilgrims and villagers on hot days in
+                            Raisen.</p>
                     </figcaption>
                     <button type="button" class="gallery-zoom-btn" aria-label="View photo">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 3h6v6" />
+                            <path d="M9 21H3v-6" />
+                            <path d="M21 3l-7 7" />
+                            <path d="M3 21l7-7" />
+                        </svg>
                     </button>
                 </figure>
 
                 <!-- Water Seva 5 (Action Horizontal) -->
                 <figure class="gallery-item gallery-item--wide" data-category="water">
                     <img src="images/gallery/water-seva/water-seva-5.webp"
-                        alt="Serving clean drinking water to villagers"
-                        loading="lazy" width="720" height="405">
+                        alt="Serving clean drinking water to villagers" loading="lazy" width="720" height="405">
                     <div class="gallery-badge">Jal Seva</div>
                     <figcaption class="gallery-caption">
                         <span class="gallery-tag">Direct Relief</span>
@@ -631,15 +1029,20 @@
                         <p>Foundation member offering drinking water with care and respect to local travelers.</p>
                     </figcaption>
                     <button type="button" class="gallery-zoom-btn" aria-label="View photo">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 3h6v6" />
+                            <path d="M9 21H3v-6" />
+                            <path d="M21 3l-7 7" />
+                            <path d="M3 21l7-7" />
+                        </svg>
                     </button>
                 </figure>
 
                 <!-- Food Seva 1 -->
                 <figure class="gallery-item" data-category="food">
                     <img src="images/gallery/food-seva/food-seva-1.webp"
-                        alt="Food distribution seva by ShivaUmeed Foundation"
-                        loading="lazy" width="400" height="500">
+                        alt="Food distribution seva by ShivaUmeed Foundation" loading="lazy" width="400" height="500">
                     <div class="gallery-badge">Food Seva</div>
                     <figcaption class="gallery-caption">
                         <span class="gallery-tag">Annadanam</span>
@@ -647,15 +1050,21 @@
                         <p>Providing freshly prepared hot nutritious meals to underprivileged community members.</p>
                     </figcaption>
                     <button type="button" class="gallery-zoom-btn" aria-label="View photo">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 3h6v6" />
+                            <path d="M9 21H3v-6" />
+                            <path d="M21 3l-7 7" />
+                            <path d="M3 21l7-7" />
+                        </svg>
                     </button>
                 </figure>
 
                 <!-- Car Seva 1 (Cover / Highlight) -->
                 <figure class="gallery-item" data-category="car">
                     <img src="images/gallery/car-seva/car-seva-1.webp"
-                        alt="Volunteers providing emergency highway car repair support"
-                        loading="lazy" width="400" height="500">
+                        alt="Volunteers providing emergency highway car repair support" loading="lazy" width="400"
+                        height="500">
                     <div class="gallery-badge">Emergency Aid</div>
                     <figcaption class="gallery-caption">
                         <span class="gallery-tag">Highway Assistance</span>
@@ -663,15 +1072,20 @@
                         <p>Helping stranded travelers on rural highways with mechanical aid &amp; tire replacement.</p>
                     </figcaption>
                     <button type="button" class="gallery-zoom-btn" aria-label="View photo">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 3h6v6" />
+                            <path d="M9 21H3v-6" />
+                            <path d="M21 3l-7 7" />
+                            <path d="M3 21l7-7" />
+                        </svg>
                     </button>
                 </figure>
 
                 <!-- Water Seva 2 (HD Landscape) -->
                 <figure class="gallery-item" data-category="water">
                     <img src="images/gallery/water-seva/water-seva-2.webp"
-                        alt="ShivaUmeed team members at water relief camp"
-                        loading="lazy" width="400" height="300">
+                        alt="ShivaUmeed team members at water relief camp" loading="lazy" width="400" height="300">
                     <div class="gallery-badge">Jal Seva</div>
                     <figcaption class="gallery-caption">
                         <span class="gallery-tag">Youth Volunteers</span>
@@ -679,14 +1093,19 @@
                         <p>Trained youth volunteers ensuring continuous water supply at community gathering sites.</p>
                     </figcaption>
                     <button type="button" class="gallery-zoom-btn" aria-label="View photo">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 3h6v6" />
+                            <path d="M9 21H3v-6" />
+                            <path d="M21 3l-7 7" />
+                            <path d="M3 21l7-7" />
+                        </svg>
                     </button>
                 </figure>
 
                 <!-- Water Seva 3 (HD Landscape) -->
                 <figure class="gallery-item" data-category="water">
-                    <img src="images/gallery/water-seva/water-seva-3.webp"
-                        alt="Water camp stall with foundation banner"
+                    <img src="images/gallery/water-seva/water-seva-3.webp" alt="Water camp stall with foundation banner"
                         loading="lazy" width="400" height="300">
                     <div class="gallery-badge">Jal Seva</div>
                     <figcaption class="gallery-caption">
@@ -695,15 +1114,21 @@
                         <p>Hygienic, sealed bottled drinking water ready for direct roadside distribution.</p>
                     </figcaption>
                     <button type="button" class="gallery-zoom-btn" aria-label="View photo">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 3h6v6" />
+                            <path d="M9 21H3v-6" />
+                            <path d="M21 3l-7 7" />
+                            <path d="M3 21l7-7" />
+                        </svg>
                     </button>
                 </figure>
 
                 <!-- Car Seva 3 (Volunteers at work) -->
                 <figure class="gallery-item" data-category="car">
                     <img src="images/gallery/car-seva/car-seva-3.webp"
-                        alt="ShivaUmeed team members fixing a flat tire on rural highway"
-                        loading="lazy" width="400" height="500">
+                        alt="ShivaUmeed team members fixing a flat tire on rural highway" loading="lazy" width="400"
+                        height="500">
                     <div class="gallery-badge">Emergency Aid</div>
                     <figcaption class="gallery-caption">
                         <span class="gallery-tag">Road Safety</span>
@@ -711,31 +1136,42 @@
                         <p>No traveler left stranded — our helpline team steps in whenever urgent help is needed.</p>
                     </figcaption>
                     <button type="button" class="gallery-zoom-btn" aria-label="View photo">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 3h6v6" />
+                            <path d="M9 21H3v-6" />
+                            <path d="M21 3l-7 7" />
+                            <path d="M3 21l7-7" />
+                        </svg>
                     </button>
                 </figure>
 
                 <!-- Water Seva 6 (Wide Action) -->
                 <figure class="gallery-item gallery-item--wide" data-category="water">
                     <img src="images/gallery/water-seva/water-seva-6.webp"
-                        alt="Serving water to passing families on rural road"
-                        loading="lazy" width="720" height="405">
+                        alt="Serving water to passing families on rural road" loading="lazy" width="720" height="405">
                     <div class="gallery-badge">Jal Seva</div>
                     <figcaption class="gallery-caption">
                         <span class="gallery-tag">Compassion in Action</span>
                         <h4>Hydrating Rural Commuters</h4>
-                        <p>Offering clean drinking water to elderly villagers, children, and passing motor travelers.</p>
+                        <p>Offering clean drinking water to elderly villagers, children, and passing motor travelers.
+                        </p>
                     </figcaption>
                     <button type="button" class="gallery-zoom-btn" aria-label="View photo">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 3h6v6" />
+                            <path d="M9 21H3v-6" />
+                            <path d="M21 3l-7 7" />
+                            <path d="M3 21l7-7" />
+                        </svg>
                     </button>
                 </figure>
 
                 <!-- Car Seva 4 -->
                 <figure class="gallery-item" data-category="car">
                     <img src="images/gallery/car-seva/car-seva-4.webp"
-                        alt="Fixing tire nuts and wheel alignment on roadside"
-                        loading="lazy" width="400" height="500">
+                        alt="Fixing tire nuts and wheel alignment on roadside" loading="lazy" width="400" height="500">
                     <div class="gallery-badge">Emergency Aid</div>
                     <figcaption class="gallery-caption">
                         <span class="gallery-tag">Ground Support</span>
@@ -743,15 +1179,21 @@
                         <p>Foundation volunteers working together to get families safely back on their journey.</p>
                     </figcaption>
                     <button type="button" class="gallery-zoom-btn" aria-label="View photo">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 3h6v6" />
+                            <path d="M9 21H3v-6" />
+                            <path d="M21 3l-7 7" />
+                            <path d="M3 21l7-7" />
+                        </svg>
                     </button>
                 </figure>
 
                 <!-- Water Seva 8 (Pouring water) -->
                 <figure class="gallery-item" data-category="water">
                     <img src="images/gallery/water-seva/water-seva-8.webp"
-                        alt="Volunteer pouring cold water for a thirsty villager"
-                        loading="lazy" width="400" height="500">
+                        alt="Volunteer pouring cold water for a thirsty villager" loading="lazy" width="400"
+                        height="500">
                     <div class="gallery-badge">Jal Seva</div>
                     <figcaption class="gallery-caption">
                         <span class="gallery-tag">Direct Service</span>
@@ -759,15 +1201,20 @@
                         <p>Providing essential hydration with warmth and dedication.</p>
                     </figcaption>
                     <button type="button" class="gallery-zoom-btn" aria-label="View photo">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 3h6v6" />
+                            <path d="M9 21H3v-6" />
+                            <path d="M21 3l-7 7" />
+                            <path d="M3 21l7-7" />
+                        </svg>
                     </button>
                 </figure>
 
                 <!-- Water Seva 11 (Serving at table) -->
                 <figure class="gallery-item" data-category="water">
                     <img src="images/gallery/water-seva/water-seva-11.webp"
-                        alt="Volunteer team coordinating water bottles"
-                        loading="lazy" width="400" height="500">
+                        alt="Volunteer team coordinating water bottles" loading="lazy" width="400" height="500">
                     <div class="gallery-badge">Jal Seva</div>
                     <figcaption class="gallery-caption">
                         <span class="gallery-tag">Roadside Refreshment</span>
@@ -775,14 +1222,19 @@
                         <p>Stocking fresh drinking water to beat the harsh afternoon heat in Madhya Pradesh.</p>
                     </figcaption>
                     <button type="button" class="gallery-zoom-btn" aria-label="View photo">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 3h6v6" />
+                            <path d="M9 21H3v-6" />
+                            <path d="M21 3l-7 7" />
+                            <path d="M3 21l7-7" />
+                        </svg>
                     </button>
                 </figure>
 
                 <!-- Car Seva 2 -->
                 <figure class="gallery-item" data-category="car">
-                    <img src="images/gallery/car-seva/car-seva-2.webp"
-                        alt="Jack adjustment and tire replacement"
+                    <img src="images/gallery/car-seva/car-seva-2.webp" alt="Jack adjustment and tire replacement"
                         loading="lazy" width="400" height="500">
                     <div class="gallery-badge">Emergency Aid</div>
                     <figcaption class="gallery-caption">
@@ -791,15 +1243,21 @@
                         <p>Providing necessary mechanical tools and manpower to solve sudden breakdowns.</p>
                     </figcaption>
                     <button type="button" class="gallery-zoom-btn" aria-label="View photo">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 3h6v6" />
+                            <path d="M9 21H3v-6" />
+                            <path d="M21 3l-7 7" />
+                            <path d="M3 21l7-7" />
+                        </svg>
                     </button>
                 </figure>
 
                 <!-- Water Seva 4 -->
                 <figure class="gallery-item" data-category="water">
                     <img src="images/gallery/water-seva/water-seva-4.webp"
-                        alt="Volunteers in foundation uniform at water seva point"
-                        loading="lazy" width="400" height="300">
+                        alt="Volunteers in foundation uniform at water seva point" loading="lazy" width="400"
+                        height="300">
                     <div class="gallery-badge">Jal Seva</div>
                     <figcaption class="gallery-caption">
                         <span class="gallery-tag">Team Spirit</span>
@@ -807,14 +1265,19 @@
                         <p>Unified under one mission — to spread hope and unconditional care in every corner.</p>
                     </figcaption>
                     <button type="button" class="gallery-zoom-btn" aria-label="View photo">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 3h6v6" />
+                            <path d="M9 21H3v-6" />
+                            <path d="M21 3l-7 7" />
+                            <path d="M3 21l7-7" />
+                        </svg>
                     </button>
                 </figure>
 
                 <!-- Water Seva 7 -->
                 <figure class="gallery-item gallery-item--wide" data-category="water">
-                    <img src="images/gallery/water-seva/water-seva-7.webp"
-                        alt="Passing refreshments to commuters"
+                    <img src="images/gallery/water-seva/water-seva-7.webp" alt="Passing refreshments to commuters"
                         loading="lazy" width="720" height="405">
                     <div class="gallery-badge">Jal Seva</div>
                     <figcaption class="gallery-caption">
@@ -823,14 +1286,19 @@
                         <p>Serving clean drinking water directly to drivers and passengers on transit corridors.</p>
                     </figcaption>
                     <button type="button" class="gallery-zoom-btn" aria-label="View photo">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 3h6v6" />
+                            <path d="M9 21H3v-6" />
+                            <path d="M21 3l-7 7" />
+                            <path d="M3 21l7-7" />
+                        </svg>
                     </button>
                 </figure>
 
                 <!-- Car Seva 5 -->
                 <figure class="gallery-item" data-category="car">
-                    <img src="images/gallery/car-seva/car-seva-5.webp"
-                        alt="Team concluding car repair on roadside"
+                    <img src="images/gallery/car-seva/car-seva-5.webp" alt="Team concluding car repair on roadside"
                         loading="lazy" width="400" height="500">
                     <div class="gallery-badge">Emergency Aid</div>
                     <figcaption class="gallery-caption">
@@ -839,14 +1307,19 @@
                         <p>Ensuring vehicles are safely fitted and tested before resuming travel.</p>
                     </figcaption>
                     <button type="button" class="gallery-zoom-btn" aria-label="View photo">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 3h6v6" />
+                            <path d="M9 21H3v-6" />
+                            <path d="M21 3l-7 7" />
+                            <path d="M3 21l7-7" />
+                        </svg>
                     </button>
                 </figure>
 
                 <!-- Water Seva 9 -->
                 <figure class="gallery-item" data-category="water">
-                    <img src="images/gallery/water-seva/water-seva-9.webp"
-                        alt="Distributing water to local villagers"
+                    <img src="images/gallery/water-seva/water-seva-9.webp" alt="Distributing water to local villagers"
                         loading="lazy" width="400" height="500">
                     <div class="gallery-badge">Jal Seva</div>
                     <figcaption class="gallery-caption">
@@ -855,14 +1328,19 @@
                         <p>Providing direct assistance to rural elderly and laborers working under intense sun.</p>
                     </figcaption>
                     <button type="button" class="gallery-zoom-btn" aria-label="View photo">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 3h6v6" />
+                            <path d="M9 21H3v-6" />
+                            <path d="M21 3l-7 7" />
+                            <path d="M3 21l7-7" />
+                        </svg>
                     </button>
                 </figure>
 
                 <!-- Water Seva 10 -->
                 <figure class="gallery-item" data-category="water">
-                    <img src="images/gallery/water-seva/water-seva-10.webp"
-                        alt="Hydrating travelers in rural Raisen"
+                    <img src="images/gallery/water-seva/water-seva-10.webp" alt="Hydrating travelers in rural Raisen"
                         loading="lazy" width="400" height="500">
                     <div class="gallery-badge">Jal Seva</div>
                     <figcaption class="gallery-caption">
@@ -871,15 +1349,21 @@
                         <p>A smile of relief as pilgrims receive clean, refreshing drinking water.</p>
                     </figcaption>
                     <button type="button" class="gallery-zoom-btn" aria-label="View photo">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 3h6v6" />
+                            <path d="M9 21H3v-6" />
+                            <path d="M21 3l-7 7" />
+                            <path d="M3 21l7-7" />
+                        </svg>
                     </button>
                 </figure>
 
                 <!-- Water Seva 12 -->
                 <figure class="gallery-item" data-category="water">
                     <img src="images/gallery/water-seva/water-seva-12.webp"
-                        alt="Volunteer pouring cold water for thirsty travelers"
-                        loading="lazy" width="400" height="500">
+                        alt="Volunteer pouring cold water for thirsty travelers" loading="lazy" width="400"
+                        height="500">
                     <div class="gallery-badge">Jal Seva</div>
                     <figcaption class="gallery-caption">
                         <span class="gallery-tag">Pure Hydration</span>
@@ -887,14 +1371,19 @@
                         <p>Volunteers on the frontline bringing cheer and support to fellow citizens.</p>
                     </figcaption>
                     <button type="button" class="gallery-zoom-btn" aria-label="View photo">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 3h6v6" />
+                            <path d="M9 21H3v-6" />
+                            <path d="M21 3l-7 7" />
+                            <path d="M3 21l7-7" />
+                        </svg>
                     </button>
                 </figure>
 
                 <!-- Water Seva 13 -->
                 <figure class="gallery-item" data-category="water">
-                    <img src="images/gallery/water-seva/water-seva-13.webp"
-                        alt="Serving water to passing vehicles"
+                    <img src="images/gallery/water-seva/water-seva-13.webp" alt="Serving water to passing vehicles"
                         loading="lazy" width="400" height="500">
                     <div class="gallery-badge">Jal Seva</div>
                     <figcaption class="gallery-caption">
@@ -903,14 +1392,19 @@
                         <p>Ensuring no traveller goes thirsty during long journeys across rural Madhya Pradesh.</p>
                     </figcaption>
                     <button type="button" class="gallery-zoom-btn" aria-label="View photo">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 3h6v6" />
+                            <path d="M9 21H3v-6" />
+                            <path d="M21 3l-7 7" />
+                            <path d="M3 21l7-7" />
+                        </svg>
                     </button>
                 </figure>
 
                 <!-- Water Seva 14 -->
                 <figure class="gallery-item" data-category="water">
-                    <img src="images/gallery/water-seva/water-seva-14.webp"
-                        alt="Community hydration camp in action"
+                    <img src="images/gallery/water-seva/water-seva-14.webp" alt="Community hydration camp in action"
                         loading="lazy" width="400" height="500">
                     <div class="gallery-badge">Jal Seva</div>
                     <figcaption class="gallery-caption">
@@ -919,7 +1413,13 @@
                         <p>Dedicated efforts to serve pure drinking water with total dedication.</p>
                     </figcaption>
                     <button type="button" class="gallery-zoom-btn" aria-label="View photo">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 3h6v6" />
+                            <path d="M9 21H3v-6" />
+                            <path d="M21 3l-7 7" />
+                            <path d="M3 21l7-7" />
+                        </svg>
                     </button>
                 </figure>
             </div>
@@ -928,20 +1428,38 @@
             <div class="gallery-social-cta">
                 <div class="social-cta-content">
                     <div class="social-cta-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                        </svg>
                     </div>
                     <div>
                         <h3 class="social-cta-title">Follow Our Daily Ground Work</h3>
-                        <p class="social-cta-desc">Watch live videos, relief stories, and daily updates directly on our official channels.</p>
+                        <p class="social-cta-desc">Watch live videos, relief stories, and daily updates directly on our
+                            official channels.</p>
                     </div>
                 </div>
                 <div class="social-cta-actions">
-                    <a href="https://www.instagram.com/shiva_umeed_?stkn=MTgyYmZ5MGg1ODlycQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    <a href="https://www.instagram.com/shiva_umeed_?stkn=MTgyYmZ5MGg1ODlycQ%3D%3D&utm_source=qr"
+                        target="_blank" rel="noopener noreferrer" class="btn btn-outline-light">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                        </svg>
                         Instagram
                     </a>
-                    <a href="https://www.youtube.com/@ShivaUmeedFoundation" target="_blank" rel="noopener noreferrer" class="btn btn-outline-light">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+                    <a href="https://www.youtube.com/@ShivaUmeedFoundation" target="_blank" rel="noopener noreferrer"
+                        class="btn btn-outline-light">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
+                            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
+                        </svg>
                         YouTube
                     </a>
                 </div>
@@ -952,7 +1470,8 @@
         <div id="gallery-lightbox" class="gallery-lightbox" aria-hidden="true" role="dialog" aria-label="Photo preview">
             <div class="lightbox-overlay" data-close-lightbox></div>
             <div class="lightbox-container">
-                <button type="button" class="lightbox-close" data-close-lightbox aria-label="Close photo preview">&times;</button>
+                <button type="button" class="lightbox-close" data-close-lightbox
+                    aria-label="Close photo preview">&times;</button>
                 <button type="button" class="lightbox-nav lightbox-prev" aria-label="Previous photo">&#10094;</button>
                 <button type="button" class="lightbox-nav lightbox-next" aria-label="Next photo">&#10095;</button>
                 <div class="lightbox-image-wrap">
@@ -1094,8 +1613,8 @@
                     <form id="volunteer-form" class="volunteer-form" action="https://api.web3forms.com/submit"
                         method="POST">
                         <input type="hidden" name="access_key" value="fdbdf252-9be6-4a2e-9ac8-0884a1e25854">
-                        <input type="hidden" name="subject" value="New Volunteer Application — SHIVAUMEED-FOUNDATION">
-                        <input type="hidden" name="from_name" value="SHIVAUMEED-FOUNDATION Website">
+                        <input type="hidden" name="subject" value="New Volunteer Application — SHIVAUMEED- FOUNDATION">
+                        <input type="hidden" name="from_name" value="SHIVAUMEED- FOUNDATION Website">
                         <input type="checkbox" name="botcheck" style="display: none;">
                         <h3>Register as a Volunteer</h3>
                         <div class="form-group">
@@ -1158,9 +1677,11 @@
 
                     <div class="donate-tax-card">
                         <div class="donate-tax-icon-wrapper" aria-hidden="true">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                <path d="m9 12 2 2 4-4"/>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                <path d="m9 12 2 2 4-4" />
                             </svg>
                         </div>
                         <div class="donate-tax-body">
@@ -1168,7 +1689,16 @@
                                 <span class="tax-badge-pill">Section 80G Tax Deduction</span>
                             </div>
                             <p class="donate-tax-text">
-                                Section 80G of the <a href="https://www.incometaxindia.gov.in/w/section-80g-56" target="_blank" rel="noopener noreferrer" class="tax-link">Income Tax Act</a> allows taxpayers to claim tax deductions for donations made to eligible charitable institutions, funds, and relief organizations. <span class="tax-citations">[<a href="https://www.incometaxindia.gov.in/w/section-80g-56" target="_blank" rel="noopener noreferrer" class="tax-cite-link" title="Income Tax India - Section 80G">1</a>, <a href="https://www.smfgindiacredit.com/knowledge-center/section-80g-deduction.aspx" target="_blank" rel="noopener noreferrer" class="tax-cite-link" title="Section 80G Deduction Guide">2</a>]</span>
+                                Section 80G of the <a href="https://www.incometaxindia.gov.in/w/section-80g-56"
+                                    target="_blank" rel="noopener noreferrer" class="tax-link">Income Tax Act</a> allows
+                                taxpayers to claim tax deductions for donations made to eligible charitable
+                                institutions, funds, and relief organizations. <span class="tax-citations">[<a
+                                        href="https://www.incometaxindia.gov.in/w/section-80g-56" target="_blank"
+                                        rel="noopener noreferrer" class="tax-cite-link"
+                                        title="Income Tax India - Section 80G">1</a>, <a
+                                        href="https://www.smfgindiacredit.com/knowledge-center/section-80g-deduction.aspx"
+                                        target="_blank" rel="noopener noreferrer" class="tax-cite-link"
+                                        title="Section 80G Deduction Guide">2</a>]</span>
                             </p>
                         </div>
                     </div>
@@ -1274,8 +1804,8 @@
                         <div class="contact-card-content">
                             <h4>Social Media</h4>
                             <div class="contact-social-links">
-                                <a href="https://www.instagram.com/shiva_umeed_" target="_blank" rel="noopener noreferrer"
-                                    aria-label="Instagram">Instagram</a>
+                                <a href="https://www.instagram.com/shiva_umeed_" target="_blank"
+                                    rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
                                 <a href="https://www.youtube.com/@ShivaUmeedFoundation" target="_blank"
                                     rel="noopener noreferrer" aria-label="YouTube">YouTube</a>
                                 <a href="https://www.linkedin.com/company/shivaumeed-foundation/" target="_blank"
@@ -1288,8 +1818,8 @@
                     <form id="contact-form" class="contact-form" action="https://api.web3forms.com/submit"
                         method="POST">
                         <input type="hidden" name="access_key" value="fdbdf252-9be6-4a2e-9ac8-0884a1e25854">
-                        <input type="hidden" name="subject" value="New Contact Enquiry — SHIVAUMEED-FOUNDATION">
-                        <input type="hidden" name="from_name" value="SHIVAUMEED-FOUNDATION Website">
+                        <input type="hidden" name="subject" value="New Contact Enquiry — SHIVAUMEED- FOUNDATION">
+                        <input type="hidden" name="from_name" value="SHIVAUMEED- FOUNDATION Website">
                         <input type="checkbox" name="botcheck" style="display: none;">
                         <h3>Send Us a Message</h3>
                         <div class="form-row">
@@ -1326,9 +1856,9 @@
             <div class="footer-grid">
                 <div class="footer-about">
                     <div class="footer-logo">
-                        <img src="logo.jpeg" alt="SHIVAUMEED-FOUNDATION Logo" width="60" height="60">
+                        <img src="logo.jpeg" alt="SHIVAUMEED- FOUNDATION Logo" width="60" height="60">
                         <div>
-                            <strong>SHIVAUMEED-FOUNDATION</strong>
+                            <strong>SHIVAUMEED- FOUNDATION</strong>
                             <span>Section 8 Company</span>
                         </div>
                     </div>
@@ -1371,6 +1901,7 @@
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About Us</a></li>
+                        <li><a href="#certifications">Certificates</a></li>
                         <li><a href="#causes">Our Causes</a></li>
                         <li><a href="#impact">Impact</a></li>
                         <li><a href="#gallery">Gallery</a></li>
@@ -1398,13 +1929,141 @@
                 </div>
             </div>
 
+            <!-- Official Statutory Details in Footer -->
+            <div class="footer-identities-bar">
+                <div class="footer-identity-item">
+                    <span class="f-lbl">CIN:</span>
+                    <strong class="f-val">U88900MP2026NPL087595</strong>
+                </div>
+                <div class="footer-identity-item">
+                    <span class="f-lbl">DARPAN ID:</span>
+                    <strong class="f-val">MP/2026/1251149</strong>
+                </div>
+                <div class="footer-identity-item">
+                    <span class="f-lbl">Registration Date:</span>
+                    <strong class="f-val">12/10/2026</strong>
+                </div>
+                <div class="footer-identity-item">
+                    <span class="f-lbl">Directors:</span>
+                    <strong class="f-val">Gourav Chouksey, Poonam Chouksey</strong>
+                </div>
+            </div>
+
             <div class="footer-bottom">
-                <p>&copy; 2024 SHIVAUMEED-FOUNDATION. All rights reserved. | Section 8 Company under Companies Act, 2013
+                <p>&copy; 2026 SHIVAUMEED- FOUNDATION. All rights reserved. | Registered Section 8 Non-Profit Company
+                    (Govt. of India)
                 </p>
                 <p class="footer-tagline">हर गाँव में उम्मीद... हर जीवन में बदलाव।</p>
             </div>
         </div>
     </footer>
+
+
+    <!-- ====== VIEW-ONLY PDF VIEWER MODAL ====== -->
+    <div id="cert-pdf-modal" class="cert-pdf-modal" aria-hidden="true" role="dialog" aria-labelledby="cert-modal-title">
+        <div class="cert-modal-backdrop" data-close-cert-modal></div>
+        <div class="cert-modal-dialog">
+            <!-- Modal Header -->
+            <div class="cert-modal-header">
+                <div class="cert-modal-title-group">
+                    <div class="cert-modal-badge">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            <path d="m9 12 2 2 4-4" />
+                        </svg>
+                        <span>Official Record · View Only</span>
+                    </div>
+                    <h3 id="cert-modal-title" class="cert-modal-title">Certificate Name</h3>
+                    <p id="cert-modal-subtitle" class="cert-modal-subtitle">Authority &amp; Reference</p>
+                </div>
+
+                <div class="cert-modal-actions">
+                    <!-- Toggle View Mode: PDF or High-Res Image -->
+                    <div class="cert-view-toggle" role="group" aria-label="View mode toggle">
+                        <button type="button" id="cert-mode-pdf" class="cert-mode-btn active" title="View PDF Document">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                <polyline points="14 2 14 8 20 8" />
+                                <line x1="16" y1="13" x2="8" y2="13" />
+                                <line x1="16" y1="17" x2="8" y2="17" />
+                            </svg>
+                            <span>PDF</span>
+                        </button>
+                        <button type="button" id="cert-mode-img" class="cert-mode-btn"
+                            title="View High-Resolution Image">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                                <circle cx="8.5" cy="8.5" r="1.5" />
+                                <polyline points="21 15 16 10 5 21" />
+                            </svg>
+                            <span>Image</span>
+                        </button>
+                    </div>
+
+                    <!-- Open Full Document in New Tab -->
+                    <a id="cert-modal-newtab" href="#" target="_blank" rel="noopener noreferrer" class="cert-ctrl-btn"
+                        title="Open full PDF in new tab" aria-label="Open PDF in new tab">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                            <polyline points="15 3 21 3 21 9"></polyline>
+                            <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                    </a>
+
+                    <!-- Close Button -->
+                    <button type="button" class="cert-ctrl-btn cert-close-btn" data-close-cert-modal
+                        aria-label="Close certificate viewer">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modal Body (Viewer Container) -->
+            <div class="cert-modal-body" oncontextmenu="return false;">
+                <!-- PDF Viewer Iframe -->
+                <div id="cert-frame-wrapper" class="cert-frame-wrapper">
+                    <iframe id="cert-pdf-iframe" class="cert-pdf-iframe" src="" title="View-Only Certificate PDF"
+                        loading="lazy"></iframe>
+                    <div id="cert-pdf-fallback" class="cert-pdf-fallback hidden">
+                        <p>If your device does not render embedded PDFs, tap below to view or toggle to Image mode
+                            above:</p>
+                        <a id="cert-fallback-link" href="#" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-primary btn-sm">Open Document ↗</a>
+                    </div>
+                </div>
+
+                <!-- High-Res Image View Container (toggleable) -->
+                <div id="cert-img-wrapper" class="cert-img-wrapper hidden">
+                    <img id="cert-modal-img" src="" alt="Certificate High-Res View" class="cert-modal-img">
+                </div>
+            </div>
+
+            <!-- Modal Footer with Prev / Next Navigation -->
+            <div class="cert-modal-footer">
+                <button type="button" id="cert-modal-prev" class="cert-nav-btn cert-nav-prev"
+                    aria-label="Previous certificate">
+                    &#10094; Previous
+                </button>
+                <div class="cert-counter-wrap">
+                    <span id="cert-counter-current">1</span> of <span id="cert-counter-total">5</span>
+                    <span class="cert-verified-pill">✓ Verified Statutory Record</span>
+                </div>
+                <button type="button" id="cert-modal-next" class="cert-nav-btn cert-nav-next"
+                    aria-label="Next certificate">
+                    Next &#10095;
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- Back to Top -->
     <button id="back-to-top" class="back-to-top" aria-label="Back to top">

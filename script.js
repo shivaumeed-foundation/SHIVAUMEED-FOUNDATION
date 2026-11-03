@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const revealElements = document.querySelectorAll(
             '.cause-card, .help-card, .impact-card, .contact-card, ' +
             '.about-content, .about-images, .volunteer-info, .volunteer-form-wrapper, ' +
-            '.donate-content, .gallery-item, .mission-item'
+            '.donate-content, .gallery-item, .mission-item, .cert-card, .identity-card'
         );
 
         revealElements.forEach(el => {
@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
             : '';
         const message = form.querySelector('#vol-message')?.value?.trim() || '';
 
-        let waText = `*New Volunteer Application — SHIVAUMEED-FOUNDATION*\n\n` +
+        let waText = `*New Volunteer Application — SHIVAUMEED- FOUNDATION*\n\n` +
             `*Name:* ${name}\n` +
             `*Email:* ${email}\n` +
             `*Phone:* ${phone}\n`;
@@ -269,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const subject = form.querySelector('#contact-subject')?.value?.trim() || '';
         const message = form.querySelector('#contact-message')?.value?.trim() || '';
 
-        let waText = `*New Contact Message — SHIVAUMEED-FOUNDATION*\n\n` +
+        let waText = `*New Contact Message — SHIVAUMEED- FOUNDATION*\n\n` +
             `*Name:* ${name}\n` +
             `*Email:* ${email}\n`;
         if (subject) {
@@ -440,7 +440,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (savePreference) {
             try {
                 localStorage.setItem('shiva_theme', theme);
-            } catch (e) {}
+            } catch (e) { }
         }
     }
 
@@ -463,7 +463,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!localStorage.getItem('shiva_theme')) {
                     applyTheme(e.matches ? 'dark' : 'light', false);
                 }
-            } catch (err) {}
+            } catch (err) { }
         });
     }
 
@@ -479,7 +479,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function showAudioToast(message, duration = 3500) {
         if (!audioToast || !audioToastText) return;
         audioToastText.textContent = message;
-        
+
         const iconSpan = audioToast.querySelector('.audio-toast-icon');
         if (iconSpan) {
             iconSpan.textContent = message.includes('muted') ? '🔇' : '🎵';
@@ -529,7 +529,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     bgAudio.play().then(() => {
                         updateAudioUI(true);
                         showAudioToast('Ambient background music playing', 3500);
-                    }).catch(() => {});
+                    }).catch(() => { });
                 } else {
                     updateAudioUI(true);
                     showAudioToast('Ambient background music playing', 3500);
@@ -600,6 +600,218 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
         });
+    }
+
+    // ============================================
+    // CERTIFICATIONS & VIEW-ONLY PDF MODAL
+    // ============================================
+    const certificatesData = [
+        {
+            title: "Certificate of Incorporation",
+            subtitle: "Ministry of Corporate Affairs · CIN: U88900MP2026NPL087595",
+            pdf: "Certifications/CERTIFICATE OF INCORPORATION SHIVAUMEED- FOUNDATION.pdf",
+            image: "Certifications Thumbnails/CERTIFICATE OF INCORPORATION SHIVAUMEED- FOUNDATION.png"
+        },
+        {
+            title: "Section 8 Non-Profit Licence",
+            subtitle: "Government of India · Section 8(1) of Companies Act, 2013",
+            pdf: "Certifications/Lisence SHIVAUMEED- FOUNDATION.pdf",
+            image: "Certifications Thumbnails/Lisence SHIVAUMEED- FOUNDATION.png"
+        },
+        {
+            title: "NGO Darpan Registration Certificate",
+            subtitle: "NITI Aayog, Government of India · DARPAN ID: MP/2026/1251149",
+            pdf: "Certifications/SHIVAUMEED-_FOUNDATION Darpan Registration Certificate.pdf",
+            image: "Certifications Thumbnails/SHIVAUMEED-_FOUNDATION Darpan Registration Certificate_Page_1.png"
+        },
+        {
+            title: "CSR Registration Certificate (Form CSR-1)",
+            subtitle: "Ministry of Corporate Affairs · Eligible for CSR Initiatives",
+            pdf: "Certifications/CSR Registration Certificate SHIVAUMEED- FOUNDATION.pdf",
+            image: "Certifications Thumbnails/CSR Registration Certificate SHIVAUMEED- FOUNDATION.png"
+        },
+        {
+            title: "ISO 9001:2015 Quality Management System Certificate",
+            subtitle: "International QMS Standard · Certificate No: 1024Q672626",
+            pdf: "Certifications/SHIVAUMEED- FOUNDATION ISO Quality Management System Certificate.pdf",
+            image: "Certifications Thumbnails/SHIVAUMEED- FOUNDATION ISO Quality Management System Certificate.png"
+        }
+    ];
+
+    const certCards = document.querySelectorAll('.cert-card');
+    const certModal = document.getElementById('cert-pdf-modal');
+    const certPdfIframe = document.getElementById('cert-pdf-iframe');
+    const certModalImg = document.getElementById('cert-modal-img');
+    const certModalTitle = document.getElementById('cert-modal-title');
+    const certModalSubtitle = document.getElementById('cert-modal-subtitle');
+    const certModalNewTab = document.getElementById('cert-modal-newtab');
+    const certCounterCurrent = document.getElementById('cert-counter-current');
+    const certCounterTotal = document.getElementById('cert-counter-total');
+    const certModalPrev = document.getElementById('cert-modal-prev');
+    const certModalNext = document.getElementById('cert-modal-next');
+    const certModePdfBtn = document.getElementById('cert-mode-pdf');
+    const certModeImgBtn = document.getElementById('cert-mode-img');
+    const certFrameWrapper = document.getElementById('cert-frame-wrapper');
+    const certImgWrapper = document.getElementById('cert-img-wrapper');
+    const certFallbackLink = document.getElementById('cert-fallback-link');
+
+    let currentCertIndex = 0;
+    let currentCertMode = 'pdf'; // 'pdf' or 'img'
+
+    if (certCounterTotal) {
+        certCounterTotal.textContent = certificatesData.length;
+    }
+
+    function setCertViewMode(mode) {
+        currentCertMode = mode;
+        if (mode === 'pdf') {
+            certModePdfBtn?.classList.add('active');
+            certModeImgBtn?.classList.remove('active');
+            certFrameWrapper?.classList.remove('hidden');
+            certImgWrapper?.classList.add('hidden');
+        } else {
+            certModeImgBtn?.classList.add('active');
+            certModePdfBtn?.classList.remove('active');
+            certImgWrapper?.classList.remove('hidden');
+            certFrameWrapper?.classList.add('hidden');
+        }
+    }
+
+    if (certModePdfBtn) {
+        certModePdfBtn.addEventListener('click', () => setCertViewMode('pdf'));
+    }
+    if (certModeImgBtn) {
+        certModeImgBtn.addEventListener('click', () => setCertViewMode('img'));
+    }
+
+    function openCertModal(index) {
+        if (!certModal) return;
+        currentCertIndex = (index >= 0 && index < certificatesData.length) ? index : 0;
+        const cert = certificatesData[currentCertIndex];
+
+        if (certModalTitle) certModalTitle.textContent = cert.title;
+        if (certModalSubtitle) certModalSubtitle.textContent = cert.subtitle;
+        if (certCounterCurrent) certCounterCurrent.textContent = currentCertIndex + 1;
+
+        // View-only PDF URL: toolbar=0&navpanes=0&scrollbar=1
+        const encodedPdfUrl = encodeURI(cert.pdf);
+        const viewOnlyUrl = encodedPdfUrl + '#toolbar=0&navpanes=0&scrollbar=1';
+
+        if (certPdfIframe) {
+            certPdfIframe.src = viewOnlyUrl;
+        }
+        if (certFallbackLink) {
+            certFallbackLink.href = encodedPdfUrl;
+        }
+        if (certModalNewTab) {
+            certModalNewTab.href = encodedPdfUrl;
+        }
+        if (certModalImg) {
+            certModalImg.src = encodeURI(cert.image);
+            certModalImg.alt = cert.title;
+        }
+
+        // Default to PDF mode
+        setCertViewMode('pdf');
+
+        certModal.classList.add('active');
+        certModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeCertModal() {
+        if (!certModal) return;
+        certModal.classList.remove('active');
+        certModal.setAttribute('aria-hidden', 'true');
+        if (certPdfIframe) certPdfIframe.src = '';
+        if (certModalImg) certModalImg.src = '';
+        document.body.style.overflow = '';
+    }
+
+    function showPrevCert() {
+        let newIndex = currentCertIndex - 1;
+        if (newIndex < 0) newIndex = certificatesData.length - 1;
+        openCertModal(newIndex);
+    }
+
+    function showNextCert() {
+        let newIndex = currentCertIndex + 1;
+        if (newIndex >= certificatesData.length) newIndex = 0;
+        openCertModal(newIndex);
+    }
+
+    // Attach click to cert cards
+    certCards.forEach((card, idx) => {
+        card.addEventListener('click', () => openCertModal(idx));
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                openCertModal(idx);
+            }
+        });
+    });
+
+    // Close buttons & backdrop
+    certModal?.querySelectorAll('[data-close-cert-modal]').forEach(el => {
+        el.addEventListener('click', closeCertModal);
+    });
+
+    if (certModalPrev) certModalPrev.addEventListener('click', (e) => { e.stopPropagation(); showPrevCert(); });
+    if (certModalNext) certModalNext.addEventListener('click', (e) => { e.stopPropagation(); showNextCert(); });
+
+    // Keyboard navigation for cert modal
+    document.addEventListener('keydown', (e) => {
+        if (!certModal || !certModal.classList.contains('active')) return;
+        if (e.key === 'Escape') closeCertModal();
+        if (e.key === 'ArrowRight') showNextCert();
+        if (e.key === 'ArrowLeft') showPrevCert();
+    });
+
+    // Copy to clipboard for CIN / DARPAN ID
+    const copyBtns = document.querySelectorAll('.identity-copy-btn');
+    copyBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const textToCopy = btn.getAttribute('data-copy');
+            if (!textToCopy) return;
+
+            const statusEl = btn.querySelector('.copy-status');
+            const originalText = statusEl ? statusEl.textContent : 'Copy';
+
+            function onSuccess() {
+                btn.classList.add('copied');
+                if (statusEl) statusEl.textContent = 'Copied!';
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+                    if (statusEl) statusEl.textContent = originalText;
+                }, 2000);
+            }
+
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(textToCopy).then(onSuccess).catch(() => {
+                    fallbackCopyText(textToCopy, onSuccess);
+                });
+            } else {
+                fallbackCopyText(textToCopy, onSuccess);
+            }
+        });
+    });
+
+    function fallbackCopyText(text, callback) {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.opacity = '0';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        try {
+            document.execCommand('copy');
+            if (callback) callback();
+        } catch (err) {
+            console.error('Copy fallback failed:', err);
+        }
+        document.body.removeChild(textArea);
     }
 
 });
