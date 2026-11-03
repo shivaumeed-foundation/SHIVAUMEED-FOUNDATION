@@ -627,8 +627,8 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "CSR Registration Certificate (Form CSR-1)",
             subtitle: "Ministry of Corporate Affairs · Eligible for CSR Initiatives",
-            pdf: "Certifications/CSR Registration Certificate SHIVAUMEED- FOUNDATION.pdf",
-            image: "Certifications Thumbnails/CSR Registration Certificate SHIVAUMEED- FOUNDATION.png"
+            pdf: "Certifications/CSR Registration Certificate SHIVAUMEED-FOUNDATION.pdf",
+            image: "Certifications Thumbnails/CSR Registration Certificate SHIVAUMEED-FOUNDATION.png"
         },
         {
             title: "ISO 9001:2015 Quality Management System Certificate",
