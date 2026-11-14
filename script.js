@@ -621,20 +621,20 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "12A Registration Certificate",
             subtitle: "Income Tax Department, Govt. of India · URN: ABVCS3577RE20261",
-            pdf: "Certifications/12A SHIVAUMEED-FOUNDATION.pdf",
-            image: "Certifications Thumbnails/12A SHIVAUMEED-FOUNDATION.png"
+            pdf: "Certifications/12A SHIVAUMEED- FOUNDATION.pdf",
+            image: "Certifications Thumbnails/12A SHIVAUMEED- FOUNDATION.png"
         },
         {
             title: "80G Tax Exemption Certificate",
             subtitle: "Income Tax Department, Govt. of India · URN: ABVCS3577RF20261",
-            pdf: "Certifications/80G SHIVAUMEED-FOUNDATION.pdf",
-            image: "Certifications Thumbnails/80G SHIVAUMEED-FOUNDATION.png"
+            pdf: "Certifications/80G SHIVAUMEED- FOUNDATION.pdf",
+            image: "Certifications Thumbnails/80G SHIVAUMEED- FOUNDATION.png"
         },
         {
             title: "CSR Registration Certificate (Form CSR-1)",
             subtitle: "Ministry of Corporate Affairs · Eligible for CSR Initiatives",
-            pdf: "Certifications/CSR Registration Certificate SHIVAUMEED-FOUNDATION.pdf",
-            image: "Certifications Thumbnails/CSR Registration Certificate SHIVAUMEED-FOUNDATION.png"
+            pdf: "Certifications/CSR Registration Certificate SHIVAUMEED- FOUNDATION.pdf",
+            image: "Certifications Thumbnails/CSR Registration Certificate SHIVAUMEED- FOUNDATION.png"
         },
         {
             title: "NGO Darpan Registration Certificate",
@@ -645,8 +645,8 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: "E-Anudaan Registration Certificate",
             subtitle: "Ministry of Social Justice & Empowerment, Govt. of India · ANUDAAN ID: MP/000044574",
-            pdf: "Certifications/E-Anudaan Certificate - SHIVAUMEED-FOUNDATION.pdf",
-            image: "Certifications Thumbnails/E-Anudaan Certificate - SHIVAUMEED-FOUNDATION.png"
+            pdf: "Certifications/E-Anudaan Certificate - SHIVAUMEED- FOUNDATION.pdf",
+            image: "Certifications Thumbnails/E-Anudaan Certificate - SHIVAUMEED- FOUNDATION.png"
         },
         {
             title: "ISO 9001:2015 Quality Management System Certificate",
