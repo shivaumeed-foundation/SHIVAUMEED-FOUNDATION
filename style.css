@@ -1162,6 +1162,10 @@ address {
     font-size: 0.85rem;
 }
 
+.about-cred-directors {
+    grid-column: 1 / -1;
+}
+
 .cred-label {
     color: var(--text-muted);
     font-weight: 500;
@@ -1186,7 +1190,7 @@ address {
 /* Statutory Identities Highlight Bar */
 .identity-highlights {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
     gap: var(--space-md);
     margin-bottom: var(--space-2xl);
 }
@@ -1290,17 +1294,9 @@ address {
 /* Certifications Showcase Grid */
 .certifications-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: var(--space-xl);
     justify-items: stretch;
-}
-
-/* Last row centering: if 5 items, last 2 span centered using subgrid trick */
-.certifications-grid .cert-card:nth-child(4) {
-    grid-column: 1;
-}
-.certifications-grid .cert-card:nth-child(5) {
-    grid-column: 2;
 }
 
 .cert-card {
@@ -1469,7 +1465,7 @@ address {
 /* Footer Identities Bar */
 .footer-identities-bar {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
     gap: var(--space-md);
     padding: var(--space-lg) 0;
     margin-bottom: var(--space-lg);
@@ -3443,11 +3439,6 @@ address {
         grid-template-columns: 1fr;
     }
 
-    .certifications-grid .cert-card:nth-child(4),
-    .certifications-grid .cert-card:nth-child(5) {
-        grid-column: auto;
-    }
-
     .cert-nav-btn {
         padding: 5px 10px;
         font-size: 0.78rem;
@@ -3999,20 +3990,19 @@ section + section {
 
 /* Replaced by 1080px mobile nav drawer */
 
-/* Cert grid: center last row when 5 items in 3-col grid */
-@media (min-width: 769px) {
+/* Cert grid: 4 columns on desktop, 2 columns on tablet/medium screens */
+@media (min-width: 1025px) {
     .certifications-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         gap: var(--space-xl);
     }
-
-    /* Push 4th card to col 1 of second row and 5th to col 2, centering visually */
-    .certifications-grid .cert-card:nth-last-child(2):nth-child(3n+1) {
-        grid-column: 1;
-    }
-    .certifications-grid .cert-card:nth-last-child(1):nth-child(3n+2) {
-        grid-column: 2;
+}
+@media (min-width: 641px) and (max-width: 1024px) {
+    .certifications-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-lg);
     }
 }
 

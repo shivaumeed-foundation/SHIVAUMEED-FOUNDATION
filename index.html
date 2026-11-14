@@ -126,7 +126,8 @@
         ],
         "identifier": [
             {"@type": "PropertyValue", "name": "CIN", "value": "U88900MP2026NPL087595"},
-            {"@type": "PropertyValue", "name": "DARPAN ID", "value": "MP/2026/1251149"}
+            {"@type": "PropertyValue", "name": "DARPAN ID", "value": "MP/2026/1251149"},
+            {"@type": "PropertyValue", "name": "ANUDAAN ID", "value": "MP/000044574"}
         ],
         "nonprofitStatus": "Section 8 Company"
     }
@@ -435,10 +436,14 @@
                             <strong class="cred-val">MP/2026/1251149</strong>
                         </div>
                         <div class="about-cred-item">
+                            <span class="cred-label">ANUDAAN ID:</span>
+                            <strong class="cred-val">MP/000044574</strong>
+                        </div>
+                        <div class="about-cred-item">
                             <span class="cred-label">Registration:</span>
                             <strong class="cred-val">12/10/2026</strong>
                         </div>
-                        <div class="about-cred-item">
+                        <div class="about-cred-item about-cred-directors">
                             <span class="cred-label">Directors:</span>
                             <strong class="cred-val">Gourav Chouksey, Poonam Chouksey</strong>
                         </div>
@@ -521,6 +526,37 @@
                     </div>
                 </div>
 
+                <!-- ANUDAAN ID Card -->
+                <div class="identity-card" id="identity-anudaan">
+                    <div class="identity-icon-wrap" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                            <polyline points="14 2 14 8 20 8" />
+                            <line x1="16" y1="13" x2="8" y2="13" />
+                            <line x1="16" y1="17" x2="8" y2="17" />
+                            <polyline points="10 9 9 9 8 9" />
+                        </svg>
+                    </div>
+                    <div class="identity-info">
+                        <span class="identity-label">E-Anudaan ID</span>
+                        <div class="identity-val-row">
+                            <strong class="identity-val" id="val-anudaan">MP/000044574</strong>
+                            <button type="button" class="identity-copy-btn" data-copy="MP/000044574"
+                                title="Copy ANUDAAN ID to clipboard" aria-label="Copy ANUDAAN ID">
+                                <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                                </svg>
+                                <span class="copy-status">Copy</span>
+                            </button>
+                        </div>
+                        <span class="identity-sub">Ministry of Social Justice &amp; Empowerment · GoI</span>
+                    </div>
+                </div>
+
                 <!-- Registration Date Card -->
                 <div class="identity-card" id="identity-regdate">
                     <div class="identity-icon-wrap" aria-hidden="true">
@@ -563,7 +599,7 @@
             </div>
 
             <!-- Certifications Showcase Grid -->
-            <div class="certifications-grid" style="--cert-count:5;">
+            <div class="certifications-grid">
                 <!-- 1. Certificate of Incorporation -->
                 <article class="cert-card" data-cert-index="0" tabindex="0" role="button"
                     aria-label="Open Certificate of Incorporation PDF">
@@ -652,13 +688,13 @@
                     </div>
                 </article>
 
-                <!-- 3. NGO Darpan Registration Certificate -->
+                <!-- 3. 12A Registration Certificate -->
                 <article class="cert-card" data-cert-index="2" tabindex="0" role="button"
-                    aria-label="Open NGO Darpan Registration Certificate PDF">
-                    <div class="cert-badge">NITI Aayog · Govt. of India</div>
+                    aria-label="Open 12A Registration Certificate PDF">
+                    <div class="cert-badge">Income Tax Dept · Govt. of India</div>
                     <div class="cert-thumb-container">
-                        <img src="Certifications%20Thumbnails/SHIVAUMEED-_FOUNDATION%20Darpan%20Registration%20Certificate_Page_1.png"
-                            alt="NGO Darpan Registration Certificate - ShivaUmeed Foundation" loading="lazy"
+                        <img src="Certifications%20Thumbnails/12A%20SHIVAUMEED-FOUNDATION.png"
+                            alt="12A Registration Certificate - ShivaUmeed Foundation" loading="lazy"
                             class="cert-thumb-img">
                         <div class="cert-overlay">
                             <span class="cert-view-pill">
@@ -674,12 +710,12 @@
                     </div>
                     <div class="cert-body">
                         <div class="cert-meta">
-                            <span class="cert-tag">National Portal</span>
-                            <span class="cert-ref">DARPAN ID: MP/2026/1251149</span>
+                            <span class="cert-tag">Tax Exemption</span>
+                            <span class="cert-ref">URN: ABVCS3577RE20261</span>
                         </div>
-                        <h3 class="cert-title">NGO Darpan Registration</h3>
-                        <p class="cert-desc">Verified registration with NITI Aayog's NGO-DARPAN portal, certifying
-                            eligibility for Government of India schemes, partnerships, and national grants.</p>
+                        <h3 class="cert-title">12A Registration Certificate</h3>
+                        <p class="cert-desc">Registered under Section 12A / 12AB of the Income Tax Act, 1961, granting
+                            official tax-exempt non-profit institution status.</p>
                         <div class="cert-card-footer">
                             <span class="cert-open-btn">
                                 <span>View PDF Document</span>
@@ -696,8 +732,52 @@
                     </div>
                 </article>
 
-                <!-- 4. CSR Registration Certificate -->
+                <!-- 4. 80G Tax Exemption Certificate -->
                 <article class="cert-card" data-cert-index="3" tabindex="0" role="button"
+                    aria-label="Open 80G Tax Exemption Certificate PDF">
+                    <div class="cert-badge">Donation Tax Relief · 80G</div>
+                    <div class="cert-thumb-container">
+                        <img src="Certifications%20Thumbnails/80G%20SHIVAUMEED-FOUNDATION.png"
+                            alt="80G Tax Exemption Certificate - ShivaUmeed Foundation" loading="lazy"
+                            class="cert-thumb-img">
+                        <div class="cert-overlay">
+                            <span class="cert-view-pill">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                    <circle cx="12" cy="12" r="3" />
+                                </svg>
+                                <span>Click to View PDF</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="cert-body">
+                        <div class="cert-meta">
+                            <span class="cert-tag">Tax Deduction</span>
+                            <span class="cert-ref">URN: ABVCS3577RF20261</span>
+                        </div>
+                        <h3 class="cert-title">80G Tax Exemption Certificate</h3>
+                        <p class="cert-desc">Approved under Section 80G(5) of the Income Tax Act, enabling donors to
+                            claim 50% tax deductions on their contributions to our charitable mission.</p>
+                        <div class="cert-card-footer">
+                            <span class="cert-open-btn">
+                                <span>View PDF Document</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                    <polyline points="14 2 14 8 20 8" />
+                                    <line x1="16" y1="13" x2="8" y2="13" />
+                                    <line x1="16" y1="17" x2="8" y2="17" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 5. CSR Registration Certificate -->
+                <article class="cert-card" data-cert-index="4" tabindex="0" role="button"
                     aria-label="Open CSR-1 Registration Certificate PDF">
                     <div class="cert-badge">CSR-1 Certified</div>
                     <div class="cert-thumb-container">
@@ -740,8 +820,96 @@
                     </div>
                 </article>
 
-                <!-- 5. ISO 9001:2015 Quality Management System Certificate -->
-                <article class="cert-card" data-cert-index="4" tabindex="0" role="button"
+                <!-- 6. NGO Darpan Registration Certificate -->
+                <article class="cert-card" data-cert-index="5" tabindex="0" role="button"
+                    aria-label="Open NGO Darpan Registration Certificate PDF">
+                    <div class="cert-badge">NITI Aayog · Govt. of India</div>
+                    <div class="cert-thumb-container">
+                        <img src="Certifications%20Thumbnails/SHIVAUMEED-_FOUNDATION%20Darpan%20Registration%20Certificate_Page_1.png"
+                            alt="NGO Darpan Registration Certificate - ShivaUmeed Foundation" loading="lazy"
+                            class="cert-thumb-img">
+                        <div class="cert-overlay">
+                            <span class="cert-view-pill">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                    <circle cx="12" cy="12" r="3" />
+                                </svg>
+                                <span>Click to View PDF</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="cert-body">
+                        <div class="cert-meta">
+                            <span class="cert-tag">National Portal</span>
+                            <span class="cert-ref">DARPAN ID: MP/2026/1251149</span>
+                        </div>
+                        <h3 class="cert-title">NGO Darpan Registration</h3>
+                        <p class="cert-desc">Verified registration with NITI Aayog's NGO-DARPAN portal, certifying
+                            eligibility for Government of India schemes, partnerships, and national grants.</p>
+                        <div class="cert-card-footer">
+                            <span class="cert-open-btn">
+                                <span>View PDF Document</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                    <polyline points="14 2 14 8 20 8" />
+                                    <line x1="16" y1="13" x2="8" y2="13" />
+                                    <line x1="16" y1="17" x2="8" y2="17" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 7. E-Anudaan Registration Certificate -->
+                <article class="cert-card" data-cert-index="6" tabindex="0" role="button"
+                    aria-label="Open E-Anudaan Registration Certificate PDF">
+                    <div class="cert-badge">Ministry of Social Justice · GoI</div>
+                    <div class="cert-thumb-container">
+                        <img src="Certifications%20Thumbnails/E-Anudaan%20Certificate%20-%20SHIVAUMEED-FOUNDATION.png"
+                            alt="E-Anudaan Registration Certificate - ShivaUmeed Foundation" loading="lazy"
+                            class="cert-thumb-img">
+                        <div class="cert-overlay">
+                            <span class="cert-view-pill">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                                    <circle cx="12" cy="12" r="3" />
+                                </svg>
+                                <span>Click to View PDF</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="cert-body">
+                        <div class="cert-meta">
+                            <span class="cert-tag">Central Portal</span>
+                            <span class="cert-ref">ANUDAAN ID: MP/000044574</span>
+                        </div>
+                        <h3 class="cert-title">E-Anudaan Registration</h3>
+                        <p class="cert-desc">Accredited under the E-Anudaan portal of the Ministry of Social Justice
+                            and Empowerment for grant-in-aid assistance and social development schemes.</p>
+                        <div class="cert-card-footer">
+                            <span class="cert-open-btn">
+                                <span>View PDF Document</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                    <polyline points="14 2 14 8 20 8" />
+                                    <line x1="16" y1="13" x2="8" y2="13" />
+                                    <line x1="16" y1="17" x2="8" y2="17" />
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- 8. ISO 9001:2015 Quality Management System Certificate -->
+                <article class="cert-card" data-cert-index="7" tabindex="0" role="button"
                     aria-label="Open ISO 9001:2015 Certificate PDF">
                     <div class="cert-badge">ISO 9001:2015</div>
                     <div class="cert-thumb-container">
@@ -1938,6 +2106,10 @@
                 <div class="footer-identity-item">
                     <span class="f-lbl">DARPAN ID:</span>
                     <strong class="f-val">MP/2026/1251149</strong>
+                </div>
+                <div class="footer-identity-item">
+                    <span class="f-lbl">ANUDAAN ID:</span>
+                    <strong class="f-val">MP/000044574</strong>
                 </div>
                 <div class="footer-identity-item">
                     <span class="f-lbl">Registration Date:</span>
