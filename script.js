@@ -884,6 +884,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         pa: BANK_TRANSFER_VPA, pn: PAYEE_NAME, am: amount, cu: 'INR',
                         tn: 'Donation to ShivaUmeed Foundation'
                     }).toString();
+                case 'amazonpay':
+                    return 'amazonpay://upi/pay?' + new URLSearchParams({
+                        pa: BANK_TRANSFER_VPA, pn: PAYEE_NAME, am: amount, cu: 'INR',
+                        tn: 'Donation to ShivaUmeed Foundation'
+                    }).toString();
+                case 'paypal':
+                    return 'https://www.paypal.com/donate?business=shivaumeedfoundation%40gmail.com&item_name=Donation+to+ShivaUmeed+Foundation&currency_code=INR&amount=' + amount;
                 default:
                     return upiUrl;
             }
@@ -971,13 +978,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (displayAmount) displayAmount.textContent = formatted;
 
                 var gateway = selectedGateway || 'upi';
-                var title = gateway === 'netbanking'
-                    ? 'Bank Transfer Details · ' + formatted
-                    : 'Direct Bank Transfer via UPI · ' + formatted;
+                var title = '';
+                if (gateway === 'paypal') {
+                    title = 'PayPal Payment · ' + formatted;
+                } else if (gateway === 'netbanking') {
+                    title = 'Bank Transfer Details · ' + formatted;
+                } else {
+                    title = 'Direct Bank Transfer via UPI · ' + formatted;
+                }
                 if (resultTitle) resultTitle.textContent = title;
 
-                // Generate UPI URL & QR (NPCI Account+IFSC direct bank transfer)
-                if (gateway !== 'netbanking') {
+                // Handle PayPal
+                if (gateway === 'paypal') {
+                    var paypalUrl = 'https://www.paypal.com/donate?business=shivaumeedfoundation%40gmail.com&item_name=Donation+to+ShivaUmeed+Foundation&currency_code=INR&amount=' + amt;
+                    renderQR(paypalUrl);
+                    if (qrActions) qrActions.style.display = 'flex';
+                    if (upiLinkBtn) {
+                        upiLinkBtn.href = paypalUrl;
+                        upiLinkBtn.textContent = '⚡ Pay via PayPal';
+                    }
+                    if (copyUpiBtn) {
+                        copyUpiBtn.setAttribute('data-copy', paypalUrl);
+                        copyUpiBtn.textContent = '📋 Copy PayPal Link';
+                    }
+                } else if (gateway !== 'netbanking') {
+                    // Generate UPI URL & QR (NPCI Account+IFSC direct bank transfer)
                     var standardUpiUrl = buildUpiUrl(amt);
                     var appDeepLink = getGatewayDeepLink(amt, gateway);
                     renderQR(standardUpiUrl);
@@ -988,11 +1013,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         var appName = gateway === 'gpay' ? 'Google Pay' :
                                       gateway === 'phonepe' ? 'PhonePe' :
                                       gateway === 'paytm' ? 'Paytm' :
-                                      gateway === 'bhim' ? 'BHIM UPI' : 'UPI App';
+                                      gateway === 'bhim' ? 'BHIM UPI' :
+                                      gateway === 'amazonpay' ? 'Amazon Pay' : 'UPI App';
                         upiLinkBtn.textContent = '⚡ Pay via ' + appName;
                     }
                     if (copyUpiBtn) {
                         copyUpiBtn.setAttribute('data-copy', standardUpiUrl);
+                        copyUpiBtn.textContent = '📋 Copy Payment Link';
                     }
                 } else {
                     // For net banking show just bank details with amount in QR
