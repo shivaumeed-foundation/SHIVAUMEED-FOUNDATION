@@ -4350,6 +4350,33 @@ section + section {
     margin-bottom: 0.4rem;
 }
 
+.donate-bank-guide {
+    margin-top: 0.8rem;
+    padding: 0.6rem 0.8rem;
+    background: rgba(201, 168, 76, 0.08);
+    border: 1px dashed rgba(201, 168, 76, 0.35);
+    border-radius: var(--radius-sm, 6px);
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.5;
+}
+
+.donate-guide-title {
+    font-weight: 600;
+    color: var(--gold-light, #f2c96d);
+    margin-bottom: 0.3rem;
+}
+
+.donate-guide-step {
+    margin-left: 0.2rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.donate-guide-step strong {
+    color: #fff;
+    font-family: monospace;
+}
+
 @media (max-width: 540px) {
     .donate-result-body {
         grid-template-columns: 1fr;

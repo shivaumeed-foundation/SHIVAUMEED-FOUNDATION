@@ -849,13 +849,16 @@ document.addEventListener('DOMContentLoaded', () => {
         var selectedAmount = 0;
         var selectedGateway = '';
 
-        // UPI VPA for Canara Bank (format: accountno@cnrb)
-        var UPI_VPA = '120042804190@cnrb';
-        var PAYEE_NAME = 'SHIVAUMEED FOUNDATION';
+        // Canara Bank Account details for direct bank transfer via UPI (NPCI .ifsc.npci standard)
+        var ACCOUNT_NO = '120042804190';
+        var IFSC_CODE = 'CNRB0007483';
+        var PAYEE_NAME = 'SHIVAUMEED- FOUNDATION';
+        // NPCI Official Account+IFSC UPI format for direct bank transfer
+        var BANK_TRANSFER_VPA = ACCOUNT_NO + '@' + IFSC_CODE + '.ifsc.npci';
 
-        function buildUpiUrl(amount, gateway) {
+        function buildUpiUrl(amount) {
             var params = new URLSearchParams({
-                pa: UPI_VPA,
+                pa: BANK_TRANSFER_VPA,
                 pn: PAYEE_NAME,
                 am: amount,
                 cu: 'INR',
@@ -865,11 +868,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function getGatewayDeepLink(amount, gateway) {
-            var upiUrl = buildUpiUrl(amount, gateway);
+            var upiUrl = buildUpiUrl(amount);
             switch(gateway) {
                 case 'gpay':
                     return 'tez://upi/pay?' + new URLSearchParams({
-                        pa: UPI_VPA, pn: PAYEE_NAME, am: amount, cu: 'INR',
+                        pa: BANK_TRANSFER_VPA, pn: PAYEE_NAME, am: amount, cu: 'INR',
                         tn: 'Donation to ShivaUmeed Foundation'
                     }).toString();
                 case 'phonepe':
@@ -878,7 +881,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     return upiUrl;
                 case 'bhim':
                     return 'upi://pay?' + new URLSearchParams({
-                        pa: UPI_VPA, pn: PAYEE_NAME, am: amount, cu: 'INR',
+                        pa: BANK_TRANSFER_VPA, pn: PAYEE_NAME, am: amount, cu: 'INR',
                         tn: 'Donation to ShivaUmeed Foundation'
                     }).toString();
                 default:
@@ -969,13 +972,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 var gateway = selectedGateway || 'upi';
                 var title = gateway === 'netbanking'
-                    ? 'Bank Transfer Details'
-                    : 'UPI Payment Ready · ' + formatted;
+                    ? 'Bank Transfer Details · ' + formatted
+                    : 'Direct Bank Transfer via UPI · ' + formatted;
                 if (resultTitle) resultTitle.textContent = title;
 
-                // Generate UPI URL & QR
+                // Generate UPI URL & QR (NPCI Account+IFSC direct bank transfer)
                 if (gateway !== 'netbanking') {
-                    var standardUpiUrl = buildUpiUrl(amt, 'upi');
+                    var standardUpiUrl = buildUpiUrl(amt);
                     var appDeepLink = getGatewayDeepLink(amt, gateway);
                     renderQR(standardUpiUrl);
 
