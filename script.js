@@ -832,4 +832,201 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.removeChild(textArea);
     }
 
+    // ============================================
+    // DONATE WIDGET — Amount + Gateway + QR
+    // ============================================
+    (function() {
+        var presetBtns = document.querySelectorAll('.donate-preset-btn');
+        var amountInput = document.getElementById('donate-amount-input');
+        var gatewayBtns = document.querySelectorAll('.donate-gateway-btn');
+        var generateBtn = document.getElementById('donate-generate-btn');
+        var resultPanel = document.getElementById('donate-result-panel');
+        var qrBox = document.getElementById('donate-qr-box');
+        var displayAmount = document.getElementById('donate-display-amount');
+        var resultTitle = document.getElementById('donate-result-title');
+        var copyBtns = document.querySelectorAll('.donate-copy-btn');
+
+        var selectedAmount = 0;
+        var selectedGateway = '';
+
+        // UPI VPA for Canara Bank (format: accountno@cnrb)
+        var UPI_VPA = '120042804190@cnrb';
+        var PAYEE_NAME = 'SHIVAUMEED FOUNDATION';
+
+        function buildUpiUrl(amount, gateway) {
+            var params = new URLSearchParams({
+                pa: UPI_VPA,
+                pn: PAYEE_NAME,
+                am: amount,
+                cu: 'INR',
+                tn: 'Donation to ShivaUmeed Foundation'
+            });
+            return 'upi://pay?' + params.toString();
+        }
+
+        function getGatewayDeepLink(amount, gateway) {
+            var upiUrl = buildUpiUrl(amount, gateway);
+            switch(gateway) {
+                case 'gpay':
+                    return 'tez://upi/pay?' + new URLSearchParams({
+                        pa: UPI_VPA, pn: PAYEE_NAME, am: amount, cu: 'INR',
+                        tn: 'Donation to ShivaUmeed Foundation'
+                    }).toString();
+                case 'phonepe':
+                    return 'phonepe://' + encodeURIComponent(upiUrl);
+                case 'paytm':
+                    return upiUrl;
+                case 'bhim':
+                    return 'upi://pay?' + new URLSearchParams({
+                        pa: UPI_VPA, pn: PAYEE_NAME, am: amount, cu: 'INR',
+                        tn: 'Donation to ShivaUmeed Foundation'
+                    }).toString();
+                default:
+                    return upiUrl;
+            }
+        }
+
+        // Generate QR code using QR Server API (no library needed)
+        function renderQR(upiUrl) {
+            qrBox.innerHTML = '';
+            var encoded = encodeURIComponent(upiUrl);
+            var img = document.createElement('img');
+            img.src = 'https://api.qrserver.com/v1/create-qr-code/?size=138x138&data=' + encoded;
+            img.alt = 'Scan to pay via UPI';
+            img.style.width = '100%';
+            img.style.height = '100%';
+            img.style.objectFit = 'contain';
+            qrBox.appendChild(img);
+        }
+
+        presetBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                presetBtns.forEach(function(b) { b.classList.remove('selected'); });
+                btn.classList.add('selected');
+                selectedAmount = parseInt(btn.dataset.amount);
+                if (amountInput) amountInput.value = '';
+            });
+        });
+
+        if (amountInput) {
+            amountInput.addEventListener('input', function() {
+                presetBtns.forEach(function(b) { b.classList.remove('selected'); });
+                selectedAmount = parseInt(amountInput.value) || 0;
+            });
+        }
+
+        gatewayBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                gatewayBtns.forEach(function(b) { b.classList.remove('selected'); });
+                btn.classList.add('selected');
+                selectedGateway = btn.dataset.gateway;
+            });
+        });
+
+        var upiLinkBtn = document.getElementById('donate-upi-link');
+        var copyUpiBtn = document.getElementById('donate-copy-upi-btn');
+        var qrActions = document.getElementById('donate-qr-actions');
+
+        // Allow clicking on cause/use cards (₹500, ₹2,000, etc.) to auto-select amount
+        document.querySelectorAll('.donate-use').forEach(function(card) {
+            card.style.cursor = 'pointer';
+            card.setAttribute('title', 'Click to donate this amount');
+            card.addEventListener('click', function() {
+                var amtText = card.querySelector('.donate-amount');
+                if (amtText) {
+                    var num = parseInt(amtText.textContent.replace(/[^0-9]/g, ''));
+                    if (num) {
+                        presetBtns.forEach(function(b) {
+                            if (parseInt(b.dataset.amount) === num) {
+                                b.classList.add('selected');
+                            } else {
+                                b.classList.remove('selected');
+                            }
+                        });
+                        selectedAmount = num;
+                        if (amountInput) amountInput.value = num;
+                        var actionsWidget = document.getElementById('donate-actions-widget');
+                        if (actionsWidget) actionsWidget.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }
+            });
+        });
+
+        if (generateBtn) {
+            generateBtn.addEventListener('click', function() {
+                // Validate amount
+                var amt = selectedAmount;
+                if (!amt && amountInput) amt = parseInt(amountInput.value) || 0;
+                if (!amt || amt < 1) {
+                    alert('Please select or enter a donation amount first.');
+                    if (amountInput) amountInput.focus();
+                    return;
+                }
+
+                // Format display
+                var formatted = '₹' + amt.toLocaleString('en-IN');
+                if (displayAmount) displayAmount.textContent = formatted;
+
+                var gateway = selectedGateway || 'upi';
+                var title = gateway === 'netbanking'
+                    ? 'Bank Transfer Details'
+                    : 'UPI Payment Ready · ' + formatted;
+                if (resultTitle) resultTitle.textContent = title;
+
+                // Generate UPI URL & QR
+                if (gateway !== 'netbanking') {
+                    var standardUpiUrl = buildUpiUrl(amt, 'upi');
+                    var appDeepLink = getGatewayDeepLink(amt, gateway);
+                    renderQR(standardUpiUrl);
+
+                    if (qrActions) qrActions.style.display = 'flex';
+                    if (upiLinkBtn) {
+                        upiLinkBtn.href = appDeepLink;
+                        var appName = gateway === 'gpay' ? 'Google Pay' :
+                                      gateway === 'phonepe' ? 'PhonePe' :
+                                      gateway === 'paytm' ? 'Paytm' :
+                                      gateway === 'bhim' ? 'BHIM UPI' : 'UPI App';
+                        upiLinkBtn.textContent = '⚡ Pay via ' + appName;
+                    }
+                    if (copyUpiBtn) {
+                        copyUpiBtn.setAttribute('data-copy', standardUpiUrl);
+                    }
+                } else {
+                    // For net banking show just bank details with amount in QR
+                    var bankQrData = 'Pay ₹' + amt + ' to Account 120042804190, IFSC CNRB0007483, Canara Bank, SHIVAUMEED- FOUNDATION';
+                    renderQR(bankQrData);
+                    if (qrActions) qrActions.style.display = 'none';
+                }
+
+                // Show panel
+                if (resultPanel) {
+                    resultPanel.hidden = false;
+                    resultPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            });
+        }
+
+        // Copy buttons
+        document.querySelectorAll('.donate-copy-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var text = btn.getAttribute('data-copy');
+                if (!text) return;
+                var orig = btn.textContent;
+                navigator.clipboard.writeText(text).then(function() {
+                    btn.textContent = 'Copied!';
+                    setTimeout(function() { btn.textContent = orig; }, 2000);
+                }).catch(function() {
+                    var ta = document.createElement('textarea');
+                    ta.value = text;
+                    document.body.appendChild(ta);
+                    ta.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(ta);
+                    btn.textContent = 'Copied!';
+                    setTimeout(function() { btn.textContent = orig; }, 2000);
+                });
+            });
+        });
+    })();
+
 });
