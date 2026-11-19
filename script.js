@@ -889,6 +889,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         pa: BANK_TRANSFER_VPA, pn: PAYEE_NAME, am: amount, cu: 'INR',
                         tn: 'Donation to ShivaUmeed Foundation'
                     }).toString();
+                case 'supermoney':
+                    return 'supermoney://upi/pay?' + new URLSearchParams({
+                        pa: BANK_TRANSFER_VPA, pn: PAYEE_NAME, am: amount, cu: 'INR',
+                        tn: 'Donation to ShivaUmeed Foundation'
+                    }).toString();
                 case 'paypal':
                     return 'https://www.paypal.com/donate?business=shivaumeedfoundation%40gmail.com&item_name=Donation+to+ShivaUmeed+Foundation&currency_code=INR&amount=' + amount;
                 default:
@@ -1014,7 +1019,8 @@ document.addEventListener('DOMContentLoaded', () => {
                                       gateway === 'phonepe' ? 'PhonePe' :
                                       gateway === 'paytm' ? 'Paytm' :
                                       gateway === 'bhim' ? 'BHIM UPI' :
-                                      gateway === 'amazonpay' ? 'Amazon Pay' : 'UPI App';
+                                      gateway === 'amazonpay' ? 'Amazon Pay' :
+                                      gateway === 'supermoney' ? 'super.money' : 'UPI App';
                         upiLinkBtn.textContent = '⚡ Pay via ' + appName;
                     }
                     if (copyUpiBtn) {

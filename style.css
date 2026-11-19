@@ -4154,7 +4154,7 @@ section + section {
 }
 
 .gateway-icon-img {
-    width: 48px;
+    width: 34px;
     height: 34px;
     object-fit: contain;
     border-radius: 6px;
@@ -4164,26 +4164,8 @@ section + section {
 
 .donate-gateway-btn:hover .gateway-icon-img,
 .donate-gateway-btn.selected .gateway-icon-img {
-    transform: scale(1.06);
+    transform: scale(1.1);
 }
-
-.gateway-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    font-size: 0.85rem;
-    color: #fff;
-}
-
-.gateway-gpay    { background: linear-gradient(135deg,#4285f4,#34a853); }
-.gateway-phonepe { background: linear-gradient(135deg,#5f259f,#8b4fcf); }
-.gateway-paytm   { background: linear-gradient(135deg,#002970,#00baf2); }
-.gateway-bhim    { background: linear-gradient(135deg,#007935,#00c65e); }
-.gateway-netbank { background: linear-gradient(135deg,#1a2e5a,#2d5099); font-size: 1.1rem; }
 
 .gateway-name {
     font-size: 0.72rem;
