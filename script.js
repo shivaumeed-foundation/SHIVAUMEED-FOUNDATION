@@ -942,31 +942,6 @@ document.addEventListener('DOMContentLoaded', () => {
         var copyUpiBtn = document.getElementById('donate-copy-upi-btn');
         var qrActions = document.getElementById('donate-qr-actions');
 
-        // Allow clicking on cause/use cards (₹500, ₹2,000, etc.) to auto-select amount
-        document.querySelectorAll('.donate-use').forEach(function(card) {
-            card.style.cursor = 'pointer';
-            card.setAttribute('title', 'Click to donate this amount');
-            card.addEventListener('click', function() {
-                var amtText = card.querySelector('.donate-amount');
-                if (amtText) {
-                    var num = parseInt(amtText.textContent.replace(/[^0-9]/g, ''));
-                    if (num) {
-                        presetBtns.forEach(function(b) {
-                            if (parseInt(b.dataset.amount) === num) {
-                                b.classList.add('selected');
-                            } else {
-                                b.classList.remove('selected');
-                            }
-                        });
-                        selectedAmount = num;
-                        if (amountInput) amountInput.value = num;
-                        var actionsWidget = document.getElementById('donate-actions-widget');
-                        if (actionsWidget) actionsWidget.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }
-                }
-            });
-        });
-
         if (generateBtn) {
             generateBtn.addEventListener('click', function() {
                 // Validate amount
