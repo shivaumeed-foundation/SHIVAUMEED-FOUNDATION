@@ -4586,10 +4586,15 @@ section + section {
     color: var(--gold-light);
     font-size: 0.82rem;
     font-weight: 700;
+    pointer-events: auto;
 }
 
 .gallery-article-link:hover {
     color: var(--white);
+}
+
+.gallery-story-button {
+    margin-top: 1.25rem;
 }
 
 .article-footer {
