@@ -2143,6 +2143,58 @@ address {
     gap: var(--space-lg);
 }
 
+.gallery-event-card {
+    position: relative;
+    min-height: 280px;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background: #0f1d3d;
+    box-shadow: 0 4px 16px rgba(15, 29, 61, 0.08);
+    cursor: pointer;
+}
+
+.gallery-event-card img {
+    width: 100%;
+    height: 100%;
+    min-height: 280px;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition-base);
+}
+
+.gallery-event-card:hover img,
+.gallery-event-card:focus-visible img {
+    transform: scale(1.04);
+}
+
+.gallery-event-card-body {
+    position: absolute;
+    inset: auto 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: 1.2rem;
+    color: #fff;
+    background: linear-gradient(to top, rgba(7, 18, 42, 0.96), rgba(7, 18, 42, 0));
+}
+
+.gallery-event-card-body span {
+    color: var(--gold-light);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.gallery-event-card-body strong {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+}
+
+.gallery-event-card-body small {
+    color: rgba(255, 255, 255, 0.82);
+}
+
 .gallery-item {
     position: relative;
     border-radius: var(--radius-lg);
@@ -4937,7 +4989,8 @@ section + section {
 
 .donate-bank-title {
     color: var(--gold-light, #f2c96d);
-    font-size: 0.9rem;
+    font-size: 1.15rem;
+    font-weight: 700;
     margin-bottom: 0.6rem;
 }
 
@@ -4948,15 +5001,15 @@ section + section {
 .donate-bank-row {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.84rem;
-    margin-bottom: 0.4rem;
+    gap: 0.65rem;
+    font-size: 1.05rem;
+    margin-bottom: 0.55rem;
     flex-wrap: wrap;
 }
 
 .donate-bank-label {
-    color: rgba(255,255,255,0.6);
-    min-width: 110px;
+    color: rgba(255,255,255,0.78);
+    min-width: 125px;
     flex-shrink: 0;
 }
 
@@ -4964,6 +5017,7 @@ section + section {
     color: #fff;
     font-weight: 600;
     font-family: monospace;
+    font-size: 1.08em;
 }
 
 .donate-bank-amount {
@@ -4976,8 +5030,8 @@ section + section {
     border: 1px solid rgba(201,168,76,0.4);
     color: var(--gold-light, #f2c96d);
     border-radius: 4px;
-    padding: 1px 8px;
-    font-size: 0.72rem;
+    padding: 5px 10px;
+    font-size: 0.82rem;
     cursor: pointer;
     transition: background 0.2s;
 }

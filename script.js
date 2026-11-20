@@ -319,11 +319,38 @@ document.addEventListener('DOMContentLoaded', () => {
     // ---- Gallery Category Filtering & Lightbox Modal ----
     const galleryFilterBtns = document.querySelectorAll('.gallery-filter-btn');
     const galleryItems = document.querySelectorAll('.gallery-item');
+    const galleryEventCards = document.querySelectorAll('.gallery-event-card');
     const lightbox = document.getElementById('gallery-lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxCaption = document.getElementById('lightbox-caption');
     const lightboxPrev = document.querySelector('.lightbox-prev');
     const lightboxNext = document.querySelector('.lightbox-next');
+
+    function loadGalleryItem(item) {
+        const img = item.querySelector('img');
+        if (img && img.dataset.src && !img.getAttribute('src')) {
+            img.src = img.dataset.src;
+        }
+    }
+
+    function applyGalleryFilter(filter) {
+        galleryFilterBtns.forEach(b => {
+            b.classList.toggle('active', b.dataset.filter === filter);
+            b.setAttribute('aria-selected', b.dataset.filter === filter ? 'true' : 'false');
+        });
+
+        galleryEventCards.forEach(card => {
+            card.classList.toggle('hidden', filter !== 'all');
+        });
+
+        galleryItems.forEach(item => {
+            const isVisible = filter !== 'all' && item.dataset.category === filter;
+            item.classList.toggle('hidden', !isVisible);
+            if (isVisible) {
+                loadGalleryItem(item);
+            }
+        });
+    }
 
     // Category Filtering
     galleryFilterBtns.forEach(btn => {
@@ -334,18 +361,25 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             btn.classList.add('active');
             btn.setAttribute('aria-selected', 'true');
-
-            const filter = btn.dataset.filter;
-            galleryItems.forEach(item => {
-                const category = item.dataset.category;
-                if (filter === 'all' || category === filter) {
-                    item.classList.remove('hidden');
-                } else {
-                    item.classList.add('hidden');
-                }
-            });
+            applyGalleryFilter(btn.dataset.filter);
         });
     });
+
+    galleryEventCards.forEach(card => {
+        const openCategory = () => {
+            const categoryBtn = Array.from(galleryFilterBtns).find(btn => btn.dataset.filter === card.dataset.eventCategory);
+            if (categoryBtn) categoryBtn.click();
+        };
+        card.addEventListener('click', openCategory);
+        card.addEventListener('keydown', event => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                openCategory();
+            }
+        });
+    });
+
+    applyGalleryFilter('all');
 
     // Lightbox Functionality
     if (lightbox && lightboxImg) {
