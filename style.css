@@ -4294,6 +4294,10 @@ section + section {
     margin-bottom: 0.6rem;
 }
 
+.legacy-payment-widget {
+    display: none !important;
+}
+
 .donate-bank-row {
     display: flex;
     align-items: center;

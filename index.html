@@ -2306,8 +2306,21 @@
                         </div>
                     </div>
 
-                    <!-- Donate Action Widget -->
-                    <div class="donate-actions" id="donate-actions-widget">
+                    <!-- Bank details only; payment gateways and QR generation are disabled. -->
+                    <div class="donate-actions donate-bank-details-only">
+                        <h4 class="donate-bank-title">Bank Transfer Details</h4>
+                        <div class="donate-bank-row">
+                            <span class="donate-bank-label">Account No:</span>
+                            <span class="donate-bank-val">120042804190</span>
+                            <button type="button" class="donate-copy-btn" data-copy="120042804190" title="Copy account number">Copy</button>
+                        </div>
+                        <div class="donate-bank-row">
+                            <span class="donate-bank-label">IFSC Code:</span>
+                            <span class="donate-bank-val">CNRB0007483</span>
+                            <button type="button" class="donate-copy-btn" data-copy="CNRB0007483" title="Copy IFSC">Copy</button>
+                        </div>
+                    </div>
+                    <div class="donate-actions legacy-payment-widget" id="donate-actions-widget">
                         <!-- Amount Selector -->
                         <div class="donate-amount-selector">
                             <p class="donate-amount-label">Choose or enter donation amount:</p>
