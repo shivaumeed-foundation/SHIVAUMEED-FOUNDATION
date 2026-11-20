@@ -4597,6 +4597,23 @@ section + section {
     margin-top: 1.25rem;
 }
 
+.btn-article {
+    background: var(--gold);
+    border: 1px solid var(--gold);
+    color: var(--navy);
+}
+
+.btn-article:hover {
+    background: var(--gold-light);
+    border-color: var(--gold-light);
+    color: var(--navy-deep);
+}
+
+.nav-article-link {
+    color: var(--gold-dark) !important;
+    font-weight: 700 !important;
+}
+
 .article-footer {
     padding: 2rem 0;
     background: var(--navy-deep);
