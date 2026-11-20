@@ -1040,7 +1040,6 @@ address {
     height: 200px;
     border-radius: var(--radius-lg);
     overflow: hidden;
-    border: 5px solid var(--off-white);
     box-shadow: var(--shadow-lg);
 }
 
@@ -3758,7 +3757,7 @@ address {
 }
 
 [data-theme="dark"] .about-img-accent {
-    border-color: var(--off-white);
+    border: 0;
 }
 
 [data-theme="dark"] .value-item {
