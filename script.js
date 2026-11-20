@@ -508,73 +508,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (bgAudio && audioToggle) {
-        let isUserExplicitlyMuted = false;
         const TARGET_VOLUME = 0.55;
 
         bgAudio.volume = TARGET_VOLUME;
-        bgAudio.muted = false;
-
-        const gestureEvents = ['pointerdown', 'touchstart', 'click', 'keydown', 'scroll'];
-
-        function handleFirstInteraction(e) {
-            // Ignore if the interaction is on the audio toggle button itself
-            if (e && e.target && e.target.closest && e.target.closest('#audio-toggle')) {
-                return;
-            }
-
-            if (!isUserExplicitlyMuted) {
-                bgAudio.muted = false;
-                bgAudio.volume = TARGET_VOLUME;
-                if (bgAudio.paused) {
-                    bgAudio.play().then(() => {
-                        updateAudioUI(true);
-                        showAudioToast('Ambient background music playing', 3500);
-                    }).catch(() => { });
-                } else {
-                    updateAudioUI(true);
-                    showAudioToast('Ambient background music playing', 3500);
-                }
-            }
-
-            removeInteractionListeners();
-        }
-
-        function removeInteractionListeners() {
-            gestureEvents.forEach(evt => {
-                window.removeEventListener(evt, handleFirstInteraction, { capture: true });
-            });
-        }
-
-        function addInteractionListeners() {
-            gestureEvents.forEach(evt => {
-                window.addEventListener(evt, handleFirstInteraction, { capture: true, passive: true });
-            });
-        }
-
-        // Attempt direct unmuted autoplay on load
-        const startPromise = bgAudio.play();
-        if (startPromise !== undefined) {
-            startPromise.then(() => {
-                // Succeeded unmuted!
-                bgAudio.muted = false;
-                updateAudioUI(true);
-                showAudioToast('Ambient background music playing', 3500);
-            }).catch(() => {
-                // Browser blocked unmuted autoplay -> start muted and listen for first interaction
-                bgAudio.muted = true;
-                bgAudio.play().then(() => {
-                    // Playing muted in background; will unmute on first gesture
-                    updateAudioUI(true);
-                }).catch(() => {
-                    updateAudioUI(false);
-                });
-
-                // Listen for first interaction to unmute and play with sound
-                addInteractionListeners();
-            });
-        } else {
-            addInteractionListeners();
-        }
+        bgAudio.muted = true;
+        updateAudioUI(false);
 
         // Audio toggle button click listener
         audioToggle.addEventListener('click', (e) => {
@@ -582,14 +520,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!bgAudio.paused && !bgAudio.muted) {
                 // Mute
-                isUserExplicitlyMuted = true;
                 bgAudio.pause();
                 bgAudio.muted = true;
                 updateAudioUI(false);
                 showAudioToast('Background music muted', 3000);
             } else {
                 // Unmute and Play
-                isUserExplicitlyMuted = false;
                 bgAudio.muted = false;
                 bgAudio.volume = TARGET_VOLUME;
                 bgAudio.play().then(() => {
