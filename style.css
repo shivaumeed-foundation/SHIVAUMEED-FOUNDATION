@@ -1181,6 +1181,159 @@ address {
     word-break: break-all;
 }
 
+/* ---- Team Section ---- */
+.team {
+    background: var(--off-white);
+}
+
+.team-groups {
+    display: grid;
+    gap: var(--space-3xl);
+}
+
+.team-group-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    color: var(--navy);
+    font-family: var(--font-heading);
+    font-size: 1.45rem;
+    margin-bottom: var(--space-lg);
+}
+
+.team-group-title::after {
+    content: '';
+    height: 1px;
+    flex: 1;
+    background: linear-gradient(to right, var(--gold), transparent);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-xl);
+}
+
+.team-grid--volunteers {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.team-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+    box-shadow: var(--shadow-lg);
+}
+
+.team-photo-wrap {
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--cream);
+}
+
+.team-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    padding: 8px;
+}
+
+.team-initials {
+    color: var(--gold-light);
+    font-family: var(--font-heading);
+    font-size: 3.2rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.team-card-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: var(--space-lg);
+}
+
+.team-role {
+    display: block;
+    color: var(--gold-dark);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    line-height: 1.4;
+    text-transform: uppercase;
+}
+
+.team-name {
+    color: var(--navy);
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    line-height: 1.3;
+    margin: 0.3rem 0 0.65rem;
+}
+
+.team-bio {
+    flex: 1;
+    color: var(--text-secondary);
+    font-size: 0.88rem;
+    line-height: 1.65;
+    margin-bottom: var(--space-md);
+}
+
+.team-profile-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm) var(--space-md);
+}
+
+.team-profile-link {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: 6px;
+    color: var(--navy);
+    font-size: 0.82rem;
+    font-weight: 700;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.65);
+    padding-bottom: 2px;
+}
+
+.team-profile-link:hover,
+.team-profile-link:focus-visible {
+    color: var(--gold-dark);
+}
+
+.team-link-icon {
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    background: var(--navy);
+    color: var(--white);
+    font-size: 0.72rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.team-link-icon--wide {
+    font-size: 1rem;
+}
+
 /* ---- Certifications & Compliance Section ---- */
 .certifications {
     background: var(--cream);
@@ -3087,6 +3240,10 @@ address {
     .about-credentials-box {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .team-grid--volunteers {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 
 /* Navigation Responsive Breakpoint (1080px) */
@@ -3226,6 +3383,16 @@ address {
 
     .about-values {
         grid-template-columns: 1fr;
+    }
+
+    /* Team */
+    .team-grid,
+    .team-grid--volunteers {
+        grid-template-columns: 1fr;
+    }
+
+    .team-photo-wrap {
+        height: 240px;
     }
 
     /* Causes */
