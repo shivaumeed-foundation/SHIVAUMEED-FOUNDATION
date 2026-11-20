@@ -15,4 +15,14 @@
       <image:title>SHIVAUMEED- FOUNDATION Cover</image:title>
     </image:image>
   </url>
+  <url>
+    <loc>https://shivaumeedfoundation.org/aiims-bhopal-patient-support-outreach.html</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://shivaumeedfoundation.org/images/gallery/AIIMS%20Bhopal/helping%20paralyzed%20person%201.jpeg</image:loc>
+      <image:title>ShivaUmeed Foundation AIIMS Bhopal patient support outreach</image:title>
+    </image:image>
+  </url>
 </urlset>
