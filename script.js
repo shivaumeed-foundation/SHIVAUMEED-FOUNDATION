@@ -816,7 +816,7 @@ document.addEventListener('DOMContentLoaded', () => {
         var resultTitle = document.getElementById('donate-result-title');
         var copyBtns = document.querySelectorAll('.donate-copy-btn');
 
-        var selectedAmount = 500;
+        var selectedAmount = 50;
         var selectedGateway = '';
         var mqrPayBtn = document.getElementById('donate-mqr-pay-btn');
 
@@ -829,7 +829,7 @@ document.addEventListener('DOMContentLoaded', () => {
         var BANK_TRANSFER_VPA = MERCHANT_UPI_VPA;
 
         function buildUpiUrl(amount) {
-            var validAmt = (amount && Number(amount) >= 1) ? Number(amount) : (selectedAmount || 500);
+            var validAmt = (amount && Number(amount) >= 50) ? Number(amount) : (selectedAmount && Number(selectedAmount) >= 50 ? Number(selectedAmount) : 50);
             var params = new URLSearchParams({
                 pa: MERCHANT_UPI_VPA,
                 pn: PAYEE_NAME,
@@ -842,12 +842,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function updateMqrPayLink(amt) {
             if (!mqrPayBtn) return;
-            var validAmt = (amt && Number(amt) >= 1) ? Number(amt) : (selectedAmount || 500);
+            var validAmt = (amt && Number(amt) >= 50) ? Number(amt) : (selectedAmount && Number(selectedAmount) >= 50 ? Number(selectedAmount) : 50);
             mqrPayBtn.href = buildUpiUrl(validAmt);
         }
 
         function getGatewayDeepLink(amount, gateway) {
-            var validAmt = (amount && Number(amount) >= 1) ? Number(amount) : (selectedAmount || 500);
+            var validAmt = (amount && Number(amount) >= 50) ? Number(amount) : (selectedAmount && Number(selectedAmount) >= 50 ? Number(selectedAmount) : 50);
             var amtStr = validAmt.toString();
             var isAndroid = /android/i.test(navigator.userAgent || '');
 
@@ -911,7 +911,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Initialize preset and MQR link on page load
         if (amountInput && amountInput.value) {
-            selectedAmount = parseInt(amountInput.value) || 500;
+            selectedAmount = parseInt(amountInput.value) || 50;
         }
         updateMqrPayLink(selectedAmount);
 
@@ -947,10 +947,10 @@ document.addEventListener('DOMContentLoaded', () => {
             mqrPayBtn.addEventListener('click', function() {
                 var amt = selectedAmount;
                 if (!amt && amountInput) amt = parseInt(amountInput.value) || 0;
-                if (!amt || amt < 1) {
-                    amt = 500;
-                    selectedAmount = 500;
-                    if (amountInput) amountInput.value = '500';
+                if (!amt || amt < 50) {
+                    amt = 50;
+                    selectedAmount = 50;
+                    if (amountInput) amountInput.value = '50';
                 }
                 mqrPayBtn.href = buildUpiUrl(amt);
             });
@@ -973,9 +973,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Validate amount
                 var amt = selectedAmount;
                 if (!amt && amountInput) amt = parseInt(amountInput.value) || 0;
-                if (!amt || amt < 1) {
-                    alert('Please select or enter a donation amount first.');
-                    if (amountInput) amountInput.focus();
+                if (!amt || amt < 50) {
+                    alert('Please choose or enter a donation amount of at least ₹50.');
+                    if (amountInput) {
+                        amountInput.value = '50';
+                        amountInput.focus();
+                    }
                     return;
                 }
 
