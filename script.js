@@ -819,21 +819,24 @@ document.addEventListener('DOMContentLoaded', () => {
         var selectedAmount = 0;
         var selectedGateway = '';
 
-        // Canara Bank Account details for direct bank transfer via UPI (NPCI .ifsc.npci standard)
+        // Canara Bank Account details & Official Merchant UPI ID (from official Canara Bank MQR)
         var ACCOUNT_NO = '120042804190';
         var IFSC_CODE = 'CNRB0007483';
         var PAYEE_NAME = 'SHIVAUMEED- FOUNDATION';
-        // NPCI Official Account+IFSC UPI format for direct bank transfer
-        var BANK_TRANSFER_VPA = ACCOUNT_NO + '@' + IFSC_CODE + '.ifsc.npci';
+        // Official Canara Bank Merchant UPI ID: cnb.419020266206@cnrb
+        var MERCHANT_UPI_VPA = 'cnb.419020266206@cnrb';
+        var BANK_TRANSFER_VPA = MERCHANT_UPI_VPA;
 
         function buildUpiUrl(amount) {
             var params = new URLSearchParams({
-                pa: BANK_TRANSFER_VPA,
+                pa: MERCHANT_UPI_VPA,
                 pn: PAYEE_NAME,
-                am: amount,
                 cu: 'INR',
                 tn: 'Donation to ShivaUmeed Foundation'
             });
+            if (amount && amount > 0) {
+                params.set('am', amount);
+            }
             return 'upi://pay?' + params.toString();
         }
 
@@ -842,7 +845,7 @@ document.addEventListener('DOMContentLoaded', () => {
             switch(gateway) {
                 case 'gpay':
                     return 'tez://upi/pay?' + new URLSearchParams({
-                        pa: BANK_TRANSFER_VPA, pn: PAYEE_NAME, am: amount, cu: 'INR',
+                        pa: MERCHANT_UPI_VPA, pn: PAYEE_NAME, am: amount, cu: 'INR',
                         tn: 'Donation to ShivaUmeed Foundation'
                     }).toString();
                 case 'phonepe':
@@ -851,17 +854,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     return upiUrl;
                 case 'bhim':
                     return 'upi://pay?' + new URLSearchParams({
-                        pa: BANK_TRANSFER_VPA, pn: PAYEE_NAME, am: amount, cu: 'INR',
+                        pa: MERCHANT_UPI_VPA, pn: PAYEE_NAME, am: amount, cu: 'INR',
                         tn: 'Donation to ShivaUmeed Foundation'
                     }).toString();
                 case 'amazonpay':
                     return 'amazonpay://upi/pay?' + new URLSearchParams({
-                        pa: BANK_TRANSFER_VPA, pn: PAYEE_NAME, am: amount, cu: 'INR',
+                        pa: MERCHANT_UPI_VPA, pn: PAYEE_NAME, am: amount, cu: 'INR',
                         tn: 'Donation to ShivaUmeed Foundation'
                     }).toString();
                 case 'supermoney':
                     return 'supermoney://upi/pay?' + new URLSearchParams({
-                        pa: BANK_TRANSFER_VPA, pn: PAYEE_NAME, am: amount, cu: 'INR',
+                        pa: MERCHANT_UPI_VPA, pn: PAYEE_NAME, am: amount, cu: 'INR',
                         tn: 'Donation to ShivaUmeed Foundation'
                     }).toString();
                 case 'paypal':

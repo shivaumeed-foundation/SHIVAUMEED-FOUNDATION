@@ -2824,7 +2824,8 @@ address {
 }
 
 .donate-content {
-    max-width: 800px;
+    max-width: 1160px;
+    margin: 0 auto;
 }
 
 .donate-content .section-label--light::after {
@@ -4993,8 +4994,185 @@ section + section {
     margin-bottom: 0.6rem;
 }
 
-.legacy-payment-widget {
-    display: none !important;
+/* Donate Main Grid: MQR Standee on Left, Details & Widget on Right */
+.donate-main-grid {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 2rem;
+    align-items: start;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 991px) {
+    .donate-main-grid {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+    }
+}
+
+/* Official Canara Bank MQR Card */
+.donate-mqr-card {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(201, 168, 76, 0.35);
+    border-radius: var(--radius-lg, 14px);
+    padding: 1.35rem 1.25rem;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.donate-mqr-card:hover {
+    border-color: rgba(201, 168, 76, 0.65);
+    box-shadow: 0 16px 42px rgba(0, 0, 0, 0.38), 0 0 20px rgba(201, 168, 76, 0.15);
+    transform: translateY(-2px);
+}
+
+.donate-mqr-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(201, 168, 76, 0.16);
+    border: 1px solid rgba(201, 168, 76, 0.45);
+    color: var(--gold-light, #f2c96d);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 4px 11px;
+    border-radius: 20px;
+    margin-bottom: 0.65rem;
+}
+
+.mqr-badge-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #4ade80;
+    display: inline-block;
+    box-shadow: 0 0 8px #4ade80;
+}
+
+.donate-mqr-title {
+    font-size: 1.15rem;
+    color: #ffffff;
+    margin-bottom: 0.3rem;
+    font-weight: 700;
+}
+
+.donate-mqr-sub {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 1.1rem;
+    line-height: 1.45;
+}
+
+.donate-mqr-visual {
+    width: 100%;
+    max-width: 300px;
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 8px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+    margin-bottom: 1.1rem;
+    overflow: hidden;
+}
+
+.donate-mqr-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+}
+
+.donate-mqr-vpa-box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    background: rgba(0, 0, 0, 0.28);
+    border: 1px dashed rgba(201, 168, 76, 0.45);
+    border-radius: 8px;
+    padding: 0.55rem 0.75rem;
+    margin-bottom: 0.9rem;
+}
+
+.donate-mqr-vpa-info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    overflow: hidden;
+}
+
+.donate-mqr-vpa-label {
+    font-size: 0.68rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.donate-mqr-vpa-val {
+    font-size: 0.88rem;
+    font-family: monospace;
+    font-weight: 700;
+    color: var(--gold-light, #f2c96d);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.donate-mqr-actions {
+    display: flex;
+    gap: 0.55rem;
+    width: 100%;
+    margin-bottom: 0.85rem;
+}
+
+.donate-mqr-actions .btn {
+    flex: 1;
+    font-size: 0.82rem;
+    padding: 8px 12px;
+    text-align: center;
+    justify-content: center;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.donate-mqr-download-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #fff;
+    transition: all 0.2s ease;
+}
+
+.donate-mqr-download-btn:hover {
+    background: rgba(255, 255, 255, 0.18);
+    color: var(--gold-light, #f2c96d);
+    border-color: var(--gold-light, #f2c96d);
+}
+
+.donate-mqr-supported-apps {
+    font-size: 0.73rem;
+    color: rgba(255, 255, 255, 0.58);
+    line-height: 1.45;
+    padding-top: 0.25rem;
+}
+
+/* Bank Details Card in Right Column */
+.donate-bank-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(201, 168, 76, 0.28);
+    border-radius: var(--radius-md, 10px);
+    padding: 1.15rem 1.35rem;
+    margin-bottom: 1.35rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
 }
 
 .donate-bank-row {

@@ -2513,144 +2513,206 @@
                         </div>
                     </div>
 
-                    <!-- Bank details only; payment gateways and QR generation are disabled. -->
-                    <div class="donate-actions donate-bank-details-only">
-                        <h4 class="donate-bank-title">Bank Transfer Details</h4>
-                        <div class="donate-bank-row">
-                            <span class="donate-bank-label">Account No:</span>
-                            <span class="donate-bank-val">120042804190</span>
-                            <button type="button" class="donate-copy-btn" data-copy="120042804190" title="Copy account number">Copy</button>
+                    <div class="donate-main-grid">
+                        <!-- Left Column: Official Canara Bank Merchant QR (MQR) Standee -->
+                        <div class="donate-mqr-card">
+                            <div class="donate-mqr-header">
+                                <span class="donate-mqr-badge">
+                                    <span class="mqr-badge-dot"></span> Official Canara Bank MQR
+                                </span>
+                                <h3 class="donate-mqr-title">Scan &amp; Pay via Any UPI App</h3>
+                                <p class="donate-mqr-sub">Scan the official merchant standee with any UPI app or Digital Rupee (e₹)</p>
+                            </div>
+
+                            <div class="donate-mqr-visual">
+                                <img src="images/canara-mqr.jpg" alt="Official Canara Bank Merchant QR Standee - ShivaUmeed Foundation" class="donate-mqr-img" loading="lazy">
+                            </div>
+
+                            <div class="donate-mqr-vpa-box">
+                                <div class="donate-mqr-vpa-info">
+                                    <span class="donate-mqr-vpa-label">Merchant UPI ID</span>
+                                    <span class="donate-mqr-vpa-val">cnb.419020266206@cnrb</span>
+                                </div>
+                                <button type="button" class="donate-copy-btn donate-mqr-copy-btn" data-copy="cnb.419020266206@cnrb" title="Copy Merchant UPI ID">
+                                    📋 Copy
+                                </button>
+                            </div>
+
+                            <div class="donate-mqr-actions">
+                                <a href="upi://pay?pa=cnb.419020266206@cnrb&amp;pn=SHIVAUMEED-+FOUNDATION&amp;cu=INR&amp;tn=Donation+to+ShivaUmeed+Foundation" class="btn btn-primary donate-mqr-pay-btn">
+                                    ⚡ Pay via UPI App
+                                </a>
+                                <a href="images/canara-mqr.jpg" target="_blank" download="Canara-Bank-MQR-ShivaUmeed.jpg" class="btn btn-outline donate-mqr-download-btn">
+                                    📥 Save MQR
+                                </a>
+                            </div>
+                            <div class="donate-mqr-supported-apps">
+                                <span>Accepted: BHIM UPI · Canara ai1 · e₹ (Digital Rupee) · Paytm · CRED · PhonePe · Google Pay</span>
+                            </div>
                         </div>
-                        <div class="donate-bank-row">
-                            <span class="donate-bank-label">IFSC Code:</span>
-                            <span class="donate-bank-val">CNRB0007483</span>
-                            <button type="button" class="donate-copy-btn" data-copy="CNRB0007483" title="Copy IFSC">Copy</button>
+
+                        <!-- Right Column: Bank Details & Interactive Payment Widget -->
+                        <div class="donate-interactive-col">
+                            <!-- Bank Transfer Details Card -->
+                            <div class="donate-bank-card">
+                                <h4 class="donate-bank-title">Direct Bank Transfer Details</h4>
+                                <div class="donate-bank-row">
+                                    <span class="donate-bank-label">Account Name:</span>
+                                    <span class="donate-bank-val">SHIVAUMEED- FOUNDATION</span>
+                                </div>
+                                <div class="donate-bank-row">
+                                    <span class="donate-bank-label">Account No:</span>
+                                    <span class="donate-bank-val">120042804190</span>
+                                    <button type="button" class="donate-copy-btn" data-copy="120042804190" title="Copy account number">Copy</button>
+                                </div>
+                                <div class="donate-bank-row">
+                                    <span class="donate-bank-label">IFSC Code:</span>
+                                    <span class="donate-bank-val">CNRB0007483</span>
+                                    <button type="button" class="donate-copy-btn" data-copy="CNRB0007483" title="Copy IFSC">Copy</button>
+                                </div>
+                                <div class="donate-bank-row">
+                                    <span class="donate-bank-label">Bank Name:</span>
+                                    <span class="donate-bank-val">Canara Bank</span>
+                                </div>
+                                <div class="donate-bank-row">
+                                    <span class="donate-bank-label">Merchant UPI:</span>
+                                    <span class="donate-bank-val">cnb.419020266206@cnrb</span>
+                                    <button type="button" class="donate-copy-btn" data-copy="cnb.419020266206@cnrb" title="Copy UPI ID">Copy</button>
+                                </div>
+                            </div>
+
+                            <!-- Interactive Donation Widget -->
+                            <div class="donate-actions" id="donate-actions-widget">
+                                <!-- Amount Selector -->
+                                <div class="donate-amount-selector">
+                                    <p class="donate-amount-label">Choose or enter custom donation amount:</p>
+                                    <div class="donate-preset-btns">
+                                        <button type="button" class="donate-preset-btn" data-amount="500">₹500</button>
+                                        <button type="button" class="donate-preset-btn" data-amount="1000">₹1,000</button>
+                                        <button type="button" class="donate-preset-btn" data-amount="2000">₹2,000</button>
+                                        <button type="button" class="donate-preset-btn" data-amount="5000">₹5,000</button>
+                                        <button type="button" class="donate-preset-btn" data-amount="10000">₹10,000</button>
+                                    </div>
+                                    <div class="donate-custom-input-row">
+                                        <span class="donate-currency-symbol">₹</span>
+                                        <input type="number" id="donate-amount-input" class="donate-custom-input"
+                                            placeholder="Enter custom amount" min="1" max="1000000" inputmode="numeric">
+                                    </div>
+                                </div>
+
+                                <!-- Payment Gateway Selection -->
+                                <div class="donate-gateway-section">
+                                    <p class="donate-gateway-label">Pay via your preferred app / gateway:</p>
+                                    <div class="donate-gateway-grid">
+                                        <button type="button" class="donate-gateway-btn" data-gateway="gpay" title="Google Pay">
+                                            <img src="images/payment-icons/gpay.png" alt="Google Pay" width="34" height="34" class="gateway-icon-img">
+                                            <span class="gateway-name">Google Pay</span>
+                                        </button>
+                                        <button type="button" class="donate-gateway-btn" data-gateway="phonepe" title="PhonePe">
+                                            <img src="images/payment-icons/phonepe.png" alt="PhonePe" width="34" height="34" class="gateway-icon-img">
+                                            <span class="gateway-name">PhonePe</span>
+                                        </button>
+                                        <button type="button" class="donate-gateway-btn" data-gateway="paytm" title="Paytm">
+                                            <img src="images/payment-icons/paytm.png" alt="Paytm" width="34" height="34" class="gateway-icon-img">
+                                            <span class="gateway-name">Paytm</span>
+                                        </button>
+                                        <button type="button" class="donate-gateway-btn" data-gateway="bhim" title="BHIM UPI">
+                                            <img src="images/payment-icons/bhim.png" alt="BHIM UPI" width="34" height="34" class="gateway-icon-img">
+                                            <span class="gateway-name">BHIM UPI</span>
+                                        </button>
+                                        <button type="button" class="donate-gateway-btn" data-gateway="amazonpay" title="Amazon Pay">
+                                            <img src="images/payment-icons/amazon.png" alt="Amazon Pay" width="34" height="34" class="gateway-icon-img">
+                                            <span class="gateway-name">Amazon Pay</span>
+                                        </button>
+                                        <button type="button" class="donate-gateway-btn" data-gateway="supermoney" title="super.money UPI">
+                                            <img src="images/payment-icons/supermoney.png" alt="super.money" width="34" height="34" class="gateway-icon-img">
+                                            <span class="gateway-name">super.money</span>
+                                        </button>
+                                        <button type="button" class="donate-gateway-btn" data-gateway="paypal" title="PayPal (International / Cards)">
+                                            <img src="images/payment-icons/paypal.svg" alt="PayPal" width="34" height="34" class="gateway-icon-img">
+                                            <span class="gateway-name">PayPal</span>
+                                        </button>
+                                        <button type="button" class="donate-gateway-btn" data-gateway="netbanking" title="Net Banking / Direct Transfer">
+                                            <img src="images/payment-icons/netbanking.svg" alt="Net Banking" width="34" height="34" class="gateway-icon-img">
+                                            <span class="gateway-name">Net Banking</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Generate QR / Payment Link Button -->
+                                <button type="button" class="btn btn-primary btn-lg donate-generate-btn" id="donate-generate-btn">
+                                    🔗 Generate Payment QR &amp; Details
+                                </button>
+
+                                <!-- QR Result Panel (hidden initially) -->
+                                <div class="donate-result-panel" id="donate-result-panel" hidden>
+                                    <div class="donate-result-header">
+                                        <div class="donate-result-title-row">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <polyline points="20 6 9 17 4 12" />
+                                            </svg>
+                                            <span id="donate-result-title">Payment Details Ready</span>
+                                        </div>
+                                    </div>
+                                    <div class="donate-result-body">
+                                        <!-- QR Code -->
+                                        <div class="donate-qr-wrapper">
+                                            <div class="donate-qr-box" id="donate-qr-box">
+                                                <!-- QR rendered by JS -->
+                                            </div>
+                                            <p class="donate-qr-label">Scan via GPay / PhonePe / Paytm / BHIM</p>
+                                            <div class="donate-qr-actions" id="donate-qr-actions">
+                                                <a href="#" class="donate-link-btn" id="donate-upi-link" target="_blank" rel="noopener">⚡ Pay via UPI App</a>
+                                                <button type="button" class="donate-copy-btn donate-copy-link-btn" id="donate-copy-upi-btn" data-copy="" title="Copy UPI Payment Link">📋 Copy Payment Link</button>
+                                            </div>
+                                        </div>
+                                        <!-- Bank Details -->
+                                        <div class="donate-bank-details">
+                                            <h4 class="donate-bank-title">Direct Bank Transfer Details</h4>
+                                            <div class="donate-bank-row">
+                                                <span class="donate-bank-label">Account Name:</span>
+                                                <span class="donate-bank-val">SHIVAUMEED- FOUNDATION</span>
+                                            </div>
+                                            <div class="donate-bank-row">
+                                                <span class="donate-bank-label">Account No:</span>
+                                                <span class="donate-bank-val" id="donate-acc-no">120042804190</span>
+                                                <button type="button" class="donate-copy-btn" data-copy="120042804190" title="Copy account number">Copy</button>
+                                            </div>
+                                            <div class="donate-bank-row">
+                                                <span class="donate-bank-label">IFSC Code:</span>
+                                                <span class="donate-bank-val" id="donate-ifsc">CNRB0007483</span>
+                                                <button type="button" class="donate-copy-btn" data-copy="CNRB0007483" title="Copy IFSC">Copy</button>
+                                            </div>
+                                            <div class="donate-bank-row">
+                                                <span class="donate-bank-label">Bank:</span>
+                                                <span class="donate-bank-val">Canara Bank</span>
+                                            </div>
+                                            <div class="donate-bank-row">
+                                                <span class="donate-bank-label">Merchant UPI:</span>
+                                                <span class="donate-bank-val">cnb.419020266206@cnrb</span>
+                                                <button type="button" class="donate-copy-btn" data-copy="cnb.419020266206@cnrb" title="Copy UPI ID">Copy</button>
+                                            </div>
+                                            <div class="donate-bank-row">
+                                                <span class="donate-bank-label">Amount:</span>
+                                                <span class="donate-bank-val donate-bank-amount" id="donate-display-amount">—</span>
+                                            </div>
+                                            <div class="donate-bank-guide">
+                                                <div class="donate-guide-title">💡 How to Pay:</div>
+                                                <div class="donate-guide-step">1. Scan the QR above with any UPI App, or tap <strong>"⚡ Pay via UPI App"</strong></div>
+                                                <div class="donate-guide-step">2. Or in your UPI app, choose <strong>"To Bank A/c"</strong> &rarr; A/C: <strong>120042804190</strong> &amp; IFSC: <strong>CNRB0007483</strong></div>
+                                                <div class="donate-guide-step">3. Recipient Name: <strong>SHIVAUMEED- FOUNDATION</strong></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="donate-result-note">After payment, please email your UTR/transaction ID to <a href="mailto:shivaumeedfoundation@gmail.com" style="color:var(--gold-light)">shivaumeedfoundation@gmail.com</a> to receive your receipt.</p>
+                                </div>
+
+                                <p class="donate-note">📞 Call to donate: <a href="tel:+919203269980" style="color:var(--gold-light)">+91 92032 69980</a> · <a href="tel:+919800439009" style="color:var(--gold-light)">+91 98004 39009</a> · <a href="tel:+917987882708" style="color:var(--gold-light)">+91 79878 82708</a><br>
+                                    All donations receive an official receipt.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="donate-actions legacy-payment-widget" id="donate-actions-widget">
-                        <!-- Amount Selector -->
-                        <div class="donate-amount-selector">
-                            <p class="donate-amount-label">Choose or enter donation amount:</p>
-                            <div class="donate-preset-btns">
-                                <button type="button" class="donate-preset-btn" data-amount="500">₹500</button>
-                                <button type="button" class="donate-preset-btn" data-amount="1000">₹1,000</button>
-                                <button type="button" class="donate-preset-btn" data-amount="2000">₹2,000</button>
-                                <button type="button" class="donate-preset-btn" data-amount="5000">₹5,000</button>
-                                <button type="button" class="donate-preset-btn" data-amount="10000">₹10,000</button>
-                            </div>
-                            <div class="donate-custom-input-row">
-                                <span class="donate-currency-symbol">₹</span>
-                                <input type="number" id="donate-amount-input" class="donate-custom-input"
-                                    placeholder="Enter custom amount" min="1" max="1000000" inputmode="numeric">
-                            </div>
-                        </div>
-
-                        <!-- Payment Gateway Selection -->
-                        <div class="donate-gateway-section">
-                            <p class="donate-gateway-label">Pay via your preferred app / gateway:</p>
-                            <div class="donate-gateway-grid">
-                                <button type="button" class="donate-gateway-btn" data-gateway="gpay" title="Google Pay">
-                                    <img src="images/payment-icons/gpay.png" alt="Google Pay" width="34" height="34" class="gateway-icon-img">
-                                    <span class="gateway-name">Google Pay</span>
-                                </button>
-                                <button type="button" class="donate-gateway-btn" data-gateway="phonepe" title="PhonePe">
-                                    <img src="images/payment-icons/phonepe.png" alt="PhonePe" width="34" height="34" class="gateway-icon-img">
-                                    <span class="gateway-name">PhonePe</span>
-                                </button>
-                                <button type="button" class="donate-gateway-btn" data-gateway="paytm" title="Paytm">
-                                    <img src="images/payment-icons/paytm.png" alt="Paytm" width="34" height="34" class="gateway-icon-img">
-                                    <span class="gateway-name">Paytm</span>
-                                </button>
-                                <button type="button" class="donate-gateway-btn" data-gateway="bhim" title="BHIM UPI">
-                                    <img src="images/payment-icons/bhim.png" alt="BHIM UPI" width="34" height="34" class="gateway-icon-img">
-                                    <span class="gateway-name">BHIM UPI</span>
-                                </button>
-                                <button type="button" class="donate-gateway-btn" data-gateway="amazonpay" title="Amazon Pay">
-                                    <img src="images/payment-icons/amazon.png" alt="Amazon Pay" width="34" height="34" class="gateway-icon-img">
-                                    <span class="gateway-name">Amazon Pay</span>
-                                </button>
-                                <button type="button" class="donate-gateway-btn" data-gateway="supermoney" title="super.money UPI">
-                                    <img src="images/payment-icons/supermoney.png" alt="super.money" width="34" height="34" class="gateway-icon-img">
-                                    <span class="gateway-name">super.money</span>
-                                </button>
-                                <button type="button" class="donate-gateway-btn" data-gateway="paypal" title="PayPal (International / Cards)">
-                                    <img src="images/payment-icons/paypal.svg" alt="PayPal" width="34" height="34" class="gateway-icon-img">
-                                    <span class="gateway-name">PayPal</span>
-                                </button>
-                                <button type="button" class="donate-gateway-btn" data-gateway="netbanking" title="Net Banking / Direct Transfer">
-                                    <img src="images/payment-icons/netbanking.svg" alt="Net Banking" width="34" height="34" class="gateway-icon-img">
-                                    <span class="gateway-name">Net Banking</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Generate QR / Payment Link Button -->
-                        <button type="button" class="btn btn-primary btn-lg donate-generate-btn" id="donate-generate-btn">
-                            🔗 Generate Payment QR &amp; Details
-                        </button>
-
-                        <!-- QR Result Panel (hidden initially) -->
-                        <div class="donate-result-panel" id="donate-result-panel" hidden>
-                            <div class="donate-result-header">
-                                <div class="donate-result-title-row">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <polyline points="20 6 9 17 4 12" />
-                                    </svg>
-                                    <span id="donate-result-title">Payment Details Ready</span>
-                                </div>
-                            </div>
-                            <div class="donate-result-body">
-                                <!-- QR Code -->
-                                <div class="donate-qr-wrapper">
-                                    <div class="donate-qr-box" id="donate-qr-box">
-                                        <!-- QR rendered by JS -->
-                                    </div>
-                                    <p class="donate-qr-label">Scan via GPay / PhonePe / Paytm / BHIM</p>
-                                    <div class="donate-qr-actions" id="donate-qr-actions">
-                                        <a href="#" class="donate-link-btn" id="donate-upi-link" target="_blank" rel="noopener">⚡ Pay via UPI App</a>
-                                        <button type="button" class="donate-copy-btn donate-copy-link-btn" id="donate-copy-upi-btn" data-copy="" title="Copy UPI Payment Link">📋 Copy Payment Link</button>
-                                    </div>
-                                </div>
-                                <!-- Bank Details -->
-                                <div class="donate-bank-details">
-                                    <h4 class="donate-bank-title">Direct Bank Account Transfer</h4>
-                                    <div class="donate-bank-row">
-                                        <span class="donate-bank-label">Account Name:</span>
-                                        <span class="donate-bank-val">SHIVAUMEED- FOUNDATION</span>
-                                    </div>
-                                    <div class="donate-bank-row">
-                                        <span class="donate-bank-label">Account No:</span>
-                                        <span class="donate-bank-val" id="donate-acc-no">120042804190</span>
-                                        <button type="button" class="donate-copy-btn" data-copy="120042804190" title="Copy account number">Copy</button>
-                                    </div>
-                                    <div class="donate-bank-row">
-                                        <span class="donate-bank-label">IFSC Code:</span>
-                                        <span class="donate-bank-val" id="donate-ifsc">CNRB0007483</span>
-                                        <button type="button" class="donate-copy-btn" data-copy="CNRB0007483" title="Copy IFSC">Copy</button>
-                                    </div>
-                                    <div class="donate-bank-row">
-                                        <span class="donate-bank-label">Bank:</span>
-                                        <span class="donate-bank-val">Canara Bank</span>
-                                    </div>
-                                    <div class="donate-bank-row">
-                                        <span class="donate-bank-label">Amount:</span>
-                                        <span class="donate-bank-val donate-bank-amount" id="donate-display-amount">—</span>
-                                    </div>
-                                    <div class="donate-bank-guide">
-                                        <div class="donate-guide-title">💡 Pay via UPI App (Bank Transfer option):</div>
-                                        <div class="donate-guide-step">1. Open GPay / PhonePe / Paytm &rarr; Tap <strong>"Bank transfer"</strong> or <strong>"To Bank A/c"</strong></div>
-                                        <div class="donate-guide-step">2. Enter Account: <strong>120042804190</strong> &amp; IFSC: <strong>CNRB0007483</strong></div>
-                                        <div class="donate-guide-step">3. Recipient Name: <strong>SHIVAUMEED- FOUNDATION</strong></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="donate-result-note">After payment, please email your UTR/transaction ID to <a href="mailto:shivaumeedfoundation@gmail.com" style="color:var(--gold-light)">shivaumeedfoundation@gmail.com</a> to receive your receipt.</p>
-                        </div>
-
-                        <p class="donate-note">📞 Call to donate: <a href="tel:+919203269980" style="color:var(--gold-light)">+91 92032 69980</a> · <a href="tel:+919800439009" style="color:var(--gold-light)">+91 98004 39009</a> · <a href="tel:+917987882708" style="color:var(--gold-light)">+91 79878 82708</a><br>
-                            All donations receive an official receipt.</p>
-                </div>
                 </div>
             </div>
         </div>
