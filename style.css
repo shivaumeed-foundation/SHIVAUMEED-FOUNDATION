@@ -4264,6 +4264,18 @@ section + section {
     border-color: var(--gold, #c9a84c);
 }
 
+.donate-custom-input-wrap {
+    margin-bottom: 1.2rem;
+}
+
+.donate-input-sublabel {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 0.35rem;
+}
+
 .donate-custom-input-row {
     display: flex;
     align-items: center;
@@ -4271,7 +4283,12 @@ section + section {
     border: 1.5px solid rgba(201,168,76,0.3);
     border-radius: var(--radius-md, 8px);
     overflow: hidden;
-    margin-bottom: 1.2rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.donate-custom-input-row:focus-within {
+    border-color: var(--gold, #c9a84c);
+    box-shadow: 0 0 10px rgba(201, 168, 76, 0.35);
 }
 
 .donate-currency-symbol {

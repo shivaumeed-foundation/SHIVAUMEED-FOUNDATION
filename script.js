@@ -816,8 +816,9 @@ document.addEventListener('DOMContentLoaded', () => {
         var resultTitle = document.getElementById('donate-result-title');
         var copyBtns = document.querySelectorAll('.donate-copy-btn');
 
-        var selectedAmount = 0;
+        var selectedAmount = 500;
         var selectedGateway = '';
+        var mqrPayBtn = document.getElementById('donate-mqr-pay-btn');
 
         // Canara Bank Account details & Official Merchant UPI ID (from official Canara Bank MQR)
         var ACCOUNT_NO = '120042804190';
@@ -828,47 +829,68 @@ document.addEventListener('DOMContentLoaded', () => {
         var BANK_TRANSFER_VPA = MERCHANT_UPI_VPA;
 
         function buildUpiUrl(amount) {
+            var validAmt = (amount && Number(amount) >= 1) ? Number(amount) : (selectedAmount || 500);
             var params = new URLSearchParams({
                 pa: MERCHANT_UPI_VPA,
                 pn: PAYEE_NAME,
+                am: validAmt.toString(),
                 cu: 'INR',
                 tn: 'Donation to ShivaUmeed Foundation'
             });
-            if (amount && amount > 0) {
-                params.set('am', amount);
-            }
             return 'upi://pay?' + params.toString();
         }
 
+        function updateMqrPayLink(amt) {
+            if (!mqrPayBtn) return;
+            var validAmt = (amt && Number(amt) >= 1) ? Number(amt) : (selectedAmount || 500);
+            mqrPayBtn.href = buildUpiUrl(validAmt);
+        }
+
         function getGatewayDeepLink(amount, gateway) {
-            var upiUrl = buildUpiUrl(amount);
+            var validAmt = (amount && Number(amount) >= 1) ? Number(amount) : (selectedAmount || 500);
+            var amtStr = validAmt.toString();
+            var isAndroid = /android/i.test(navigator.userAgent || '');
+
+            var upiParams = new URLSearchParams({
+                pa: MERCHANT_UPI_VPA,
+                pn: PAYEE_NAME,
+                am: amtStr,
+                cu: 'INR',
+                tn: 'Donation to ShivaUmeed Foundation'
+            }).toString();
+
+            var upiUrl = 'upi://pay?' + upiParams;
+
             switch(gateway) {
                 case 'gpay':
-                    return 'tez://upi/pay?' + new URLSearchParams({
-                        pa: MERCHANT_UPI_VPA, pn: PAYEE_NAME, am: amount, cu: 'INR',
-                        tn: 'Donation to ShivaUmeed Foundation'
-                    }).toString();
+                    return 'tez://upi/pay?' + upiParams;
                 case 'phonepe':
-                    return 'phonepe://' + encodeURIComponent(upiUrl);
+                    if (isAndroid) {
+                        return 'intent://pay?' + upiParams + '#Intent;scheme=upi;package=com.phonepe.app;end;';
+                    }
+                    return 'phonepe://pay?' + upiParams;
                 case 'paytm':
-                    return upiUrl;
+                    if (isAndroid) {
+                        return 'intent://pay?' + upiParams + '#Intent;scheme=upi;package=net.one97.paytm;end;';
+                    }
+                    return 'paytmmp://pay?' + upiParams;
                 case 'bhim':
-                    return 'upi://pay?' + new URLSearchParams({
-                        pa: MERCHANT_UPI_VPA, pn: PAYEE_NAME, am: amount, cu: 'INR',
-                        tn: 'Donation to ShivaUmeed Foundation'
-                    }).toString();
+                    if (isAndroid) {
+                        return 'intent://pay?' + upiParams + '#Intent;scheme=upi;package=in.org.npci.upiapp;end;';
+                    }
+                    return upiUrl;
                 case 'amazonpay':
-                    return 'amazonpay://upi/pay?' + new URLSearchParams({
-                        pa: MERCHANT_UPI_VPA, pn: PAYEE_NAME, am: amount, cu: 'INR',
-                        tn: 'Donation to ShivaUmeed Foundation'
-                    }).toString();
+                    if (isAndroid) {
+                        return 'intent://pay?' + upiParams + '#Intent;scheme=upi;package=in.amazon.mShop.android.shopping;end;';
+                    }
+                    return upiUrl;
                 case 'supermoney':
-                    return 'supermoney://upi/pay?' + new URLSearchParams({
-                        pa: MERCHANT_UPI_VPA, pn: PAYEE_NAME, am: amount, cu: 'INR',
-                        tn: 'Donation to ShivaUmeed Foundation'
-                    }).toString();
+                    if (isAndroid) {
+                        return 'intent://pay?' + upiParams + '#Intent;scheme=upi;package=money.super.payments;end;';
+                    }
+                    return upiUrl;
                 case 'paypal':
-                    return 'https://www.paypal.com/donate?business=shivaumeedfoundation%40gmail.com&item_name=Donation+to+ShivaUmeed+Foundation&currency_code=INR&amount=' + amount;
+                    return 'https://www.paypal.com/donate?business=shivaumeedfoundation%40gmail.com&item_name=Donation+to+ShivaUmeed+Foundation&currency_code=INR&amount=' + amtStr;
                 default:
                     return upiUrl;
             }
@@ -887,19 +909,50 @@ document.addEventListener('DOMContentLoaded', () => {
             qrBox.appendChild(img);
         }
 
+        // Initialize preset and MQR link on page load
+        if (amountInput && amountInput.value) {
+            selectedAmount = parseInt(amountInput.value) || 500;
+        }
+        updateMqrPayLink(selectedAmount);
+
         presetBtns.forEach(function(btn) {
             btn.addEventListener('click', function() {
                 presetBtns.forEach(function(b) { b.classList.remove('selected'); });
                 btn.classList.add('selected');
                 selectedAmount = parseInt(btn.dataset.amount);
-                if (amountInput) amountInput.value = '';
+                if (amountInput) {
+                    amountInput.value = selectedAmount;
+                }
+                updateMqrPayLink(selectedAmount);
             });
         });
 
         if (amountInput) {
             amountInput.addEventListener('input', function() {
-                presetBtns.forEach(function(b) { b.classList.remove('selected'); });
-                selectedAmount = parseInt(amountInput.value) || 0;
+                var val = parseInt(amountInput.value) || 0;
+                selectedAmount = val;
+                // Highlight matching preset button if entered amount matches a preset
+                presetBtns.forEach(function(b) {
+                    if (parseInt(b.dataset.amount) === val) {
+                        b.classList.add('selected');
+                    } else {
+                        b.classList.remove('selected');
+                    }
+                });
+                updateMqrPayLink(selectedAmount);
+            });
+        }
+
+        if (mqrPayBtn) {
+            mqrPayBtn.addEventListener('click', function() {
+                var amt = selectedAmount;
+                if (!amt && amountInput) amt = parseInt(amountInput.value) || 0;
+                if (!amt || amt < 1) {
+                    amt = 500;
+                    selectedAmount = 500;
+                    if (amountInput) amountInput.value = '500';
+                }
+                mqrPayBtn.href = buildUpiUrl(amt);
             });
         }
 

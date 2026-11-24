@@ -2539,7 +2539,7 @@
                             </div>
 
                             <div class="donate-mqr-actions">
-                                <a href="upi://pay?pa=cnb.419020266206@cnrb&amp;pn=SHIVAUMEED-+FOUNDATION&amp;cu=INR&amp;tn=Donation+to+ShivaUmeed+Foundation" class="btn btn-primary donate-mqr-pay-btn">
+                                <a href="upi://pay?pa=cnb.419020266206@cnrb&amp;pn=SHIVAUMEED-+FOUNDATION&amp;am=500&amp;cu=INR&amp;tn=Donation+to+ShivaUmeed+Foundation" class="btn btn-primary donate-mqr-pay-btn" id="donate-mqr-pay-btn">
                                     ⚡ Pay via UPI App
                                 </a>
                                 <a href="images/canara-mqr.jpg" target="_blank" download="Canara-Bank-MQR-ShivaUmeed.jpg" class="btn btn-outline donate-mqr-download-btn">
@@ -2585,24 +2585,27 @@
                             <div class="donate-actions" id="donate-actions-widget">
                                 <!-- Amount Selector -->
                                 <div class="donate-amount-selector">
-                                    <p class="donate-amount-label">Choose or enter custom donation amount:</p>
+                                    <p class="donate-amount-label">1. Choose or enter donation amount:</p>
                                     <div class="donate-preset-btns">
-                                        <button type="button" class="donate-preset-btn" data-amount="500">₹500</button>
+                                        <button type="button" class="donate-preset-btn selected" data-amount="500">₹500</button>
                                         <button type="button" class="donate-preset-btn" data-amount="1000">₹1,000</button>
                                         <button type="button" class="donate-preset-btn" data-amount="2000">₹2,000</button>
                                         <button type="button" class="donate-preset-btn" data-amount="5000">₹5,000</button>
                                         <button type="button" class="donate-preset-btn" data-amount="10000">₹10,000</button>
                                     </div>
-                                    <div class="donate-custom-input-row">
-                                        <span class="donate-currency-symbol">₹</span>
-                                        <input type="number" id="donate-amount-input" class="donate-custom-input"
-                                            placeholder="Enter custom amount" min="1" max="1000000" inputmode="numeric">
+                                    <div class="donate-custom-input-wrap">
+                                        <label for="donate-amount-input" class="donate-input-sublabel">Donation Amount (₹):</label>
+                                        <div class="donate-custom-input-row">
+                                            <span class="donate-currency-symbol">₹</span>
+                                            <input type="number" id="donate-amount-input" class="donate-custom-input"
+                                                placeholder="Enter amount (min ₹1)" value="500" min="1" max="1000000" inputmode="numeric">
+                                        </div>
                                     </div>
                                 </div>
 
                                 <!-- Payment Gateway Selection -->
                                 <div class="donate-gateway-section">
-                                    <p class="donate-gateway-label">Pay via your preferred app / gateway:</p>
+                                    <p class="donate-gateway-label">2. Pay via your preferred app / gateway:</p>
                                     <div class="donate-gateway-grid">
                                         <button type="button" class="donate-gateway-btn" data-gateway="gpay" title="Google Pay">
                                             <img src="images/payment-icons/gpay.png" alt="Google Pay" width="34" height="34" class="gateway-icon-img">
